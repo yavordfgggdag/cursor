@@ -1329,3 +1329,8 @@ footer {
 .offer-product picture {
   display: block;
 }
+
+/* 12px indigo-on-white failed AA in Lighthouse mobile; use locked body text pairing. */
+.section-label {
+  color: var(--color-text);
+}

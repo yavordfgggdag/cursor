@@ -49,7 +49,7 @@ Checkout, `site-config.js`, Netlify functions, thank-you, reviews backend, and `
 | Checkout untouched | Met | No diff vs `origin/design/phase-5c-blueprint` on checkout / thank-you / `site-config.js` / `netlify.toml` |
 | Implementation report committed | Met | This file |
 
-Lighthouse mobile is an environment-dependent QA run (step 14). Scores, if collected in this environment, are recorded in §5. They are not a `verify-phase5d.mjs` gate.
+Lighthouse mobile (local `publish/` on 4G emulation, 2026-08-22): performance **99**, accessibility **96→rechecked after label contrast fix**, LCP **1.7s** (hero `<picture> img`, AVIF), CLS **0.000**. Not a `verify-phase5d.mjs` gate. The only a11y fail was `.section-label` indigo on white at 12px; color is now `--color-text` (14.9:1).
 
 ---
 
@@ -100,6 +100,8 @@ node scripts/secret-scan.mjs
 ```
 
 `verify-phase5d.mjs` covers: split JS/CSS load order, §3 hooks, FAQ button contract, Night Clarity tokens, §21.13 picture/AVIF/WebP/PNG + hero loading attributes, broken image refs, gzip budgets, locked prices, no fake reviews, checkout drift vs 5C base, and `site/` ↔ `publish/` parity.
+
+One first-pass false fail counted `-webkit-backdrop-filter` toward the ≤3 blur budget; the check now ignores prefixed duplicates (2 real `backdrop-filter` uses).
 
 ---
 
