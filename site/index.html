@@ -7,6 +7,15 @@
 <link rel="preconnect" href="https://fonts.googleapis.com/">
 <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="canonical" href="https://metod-butzin-14.netlify.app/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:title" content="Методът на Бутзин — 14-дневен план за по-спокойно заспиване">
+<meta property="og:description" content="14-дневен план за по-спокойно заспиване по Метода на Бутзин — без хапчета, с ясен план за всяка трудна вечер.">
+<meta property="og:url" content="https://metod-butzin-14.netlify.app/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="bg_BG">
+<meta name="twitter:card" content="summary">
+<script src="/site-config.js"></script>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -35,7 +44,12 @@
 }
 
 html { scroll-behavior: smooth; }
-body { font-family: var(--font-body); font-size: 17px; color: var(--text); background: var(--bg); line-height: 1.78; overflow-x: hidden; }
+body { font-family: var(--font-body); font-size: 17px; color: var(--text); background: var(--bg); line-height: 1.78; overflow-x: hidden; padding-bottom: 88px; }
+a:focus-visible, .btn-cta:focus-visible, .faq-q:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  .reveal { opacity: 1; transform: none; }
+}
 .wrap { max-width: 700px; margin: 0 auto; padding: 0 22px; }
 .section { padding: 65px 0; }
 .section-gray { background: var(--gray); }
@@ -207,7 +221,7 @@ p { margin: 13px 0; }
 /* FAQ */
 .faq-item { border: 1px solid var(--border); border-radius: 14px; margin: 11px 0; overflow: hidden; transition: box-shadow 0.2s, border-color 0.2s; }
 .faq-item:hover { box-shadow: 0 4px 20px rgba(99,102,241,0.1); border-color: rgba(99,102,241,0.3); }
-.faq-q { font-weight: 700; font-size: 16px; padding: 20px 26px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; background: white; transition: background 0.2s, color 0.2s; user-select: none; line-height: 1.45; font-family: var(--font-display); }
+.faq-q { font-weight: 700; font-size: 16px; padding: 20px 26px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; background: white; transition: background 0.2s, color 0.2s; user-select: none; line-height: 1.45; font-family: var(--font-display); border: none; width: 100%; text-align: left; color: inherit; }
 .faq-q:hover { background: var(--gray); }
 .faq-q.open { color: var(--primary); background: var(--gray); }
 .faq-icon { font-size: 24px; transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1); flex-shrink: 0; color: var(--primary); font-weight: 300; line-height: 1; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; background: rgba(99,102,241,0.1); border-radius: 50%; }
@@ -240,6 +254,10 @@ p { margin: 13px 0; }
 .highlight-box h3 { font-family: var(--font-display); color: var(--primary-dark); margin-top: 0; }
 .highlight-box p { color: #444; font-size: 16px; margin: 10px 0; }
 .highlight-box p:last-child { margin-bottom: 0; }
+
+.delivery-box { background: rgba(39,174,96,0.08); border: 1px solid rgba(39,174,96,0.35); border-radius: 14px; padding: 20px 22px; margin: 18px 0; font-size: 15px; line-height: 1.7; }
+.delivery-box strong { color: var(--green); }
+.delivery-box a { color: var(--primary-dark); font-weight: 700; }
 
 /* FOOTER */
 footer { background: var(--dark-2); color: rgba(255,255,255,0.35); text-align: center; padding: 45px 20px; font-size: 13px; border-top: 1px solid rgba(255,255,255,.06); }
@@ -331,7 +349,7 @@ footer a:hover { color: var(--primary-2); }
     <div class="bonus-box reveal reveal-delay-1">
       <div class="bonus-title">🎁 Бонус 4: Somniora Software</div>
       <div class="bonus-meta"><span class="bonus-value">29,90 €</span><span class="bonus-free">→ БЕЗПЛАТНО</span></div>
-      <p class="bonus-desc">Дневник на съня + Личен план + Адаптивен план + Проследяване на напредъка — виждаш промяната нощ след нощ</p>
+      <p class="bonus-desc">Дневник на съня + Личен план + Адаптивен план + Проследяване на напредъка — достъп в Somniora Academy след покупка</p>
     </div>
 
     <div class="bonus-box reveal reveal-delay-2">
@@ -344,9 +362,9 @@ footer a:hover { color: var(--primary-2); }
 
     <div class="price-section">
       <div class="price-original">149,40 €</div>
-      <span class="price-current"><span class="price-currency">€</span>13,80</span>
+      <span class="price-current"><span class="price-currency">€</span>17,00</span>
       <div class="price-label">еднократно плащане · моментален достъп</div>
-      <span class="price-save">Спестяваш 135,60 € (91% отстъпка)</span>
+      <span class="price-save">Спестяваш 132,40 € (89% отстъпка)</span>
     </div>
 
     <div class="urgency-box">
@@ -354,14 +372,14 @@ footer a:hover { color: var(--primary-2); }
       <span class="timer" id="timer1">23:59:46</span>
     </div>
 
-    <a href="#order" class="btn-cta">🌙 Искам да знам какво да правя, когато сънят не идва →</a>
-    <p class="btn-sub">🔒 Сигурно плащане &nbsp;•&nbsp; Веднага получаваш достъп &nbsp;•&nbsp; 14-дневна гаранция</p>
+    <a href="https://30-dni-po-dobar-sun.netlify.app/checkout" class="btn-cta">🌙 Искам да знам какво да правя, когато сънят не идва →</a>
+    <p class="btn-sub">🔒 Сигурно плащане &nbsp;•&nbsp; Веднага получаваш достъп &nbsp;•&nbsp; 7-дневна гаранция</p>
 
     <div class="guarantee">
       <div class="guarantee-icon">🛡️</div>
       <div>
-        <div class="guarantee-title">14-дневна гаранция за връщане на парите</div>
-        <p class="guarantee-text">Ако в рамките на 14 дни прецениш, че програмата не е подходяща за теб, свържи се с нас и ти връщаме заплатената сума. Без въпроси. Нямаш какво да губиш — освен поредната нощ без ясен план.</p>
+        <div class="guarantee-title">7-дневна гаранция за връщане на парите</div>
+        <p class="guarantee-text">Ако в рамките на 7 дни след покупката прецениш, че програмата не е подходяща за теб, свържи се с нас на hello@somniora.bg и ти връщаме заплатената сума. Без въпроси. Нямаш какво да губиш — освен поредната нощ без ясен план.</p>
       </div>
     </div>
   </div>
@@ -597,13 +615,13 @@ footer a:hover { color: var(--primary-2); }
       <div class="bonus-box reveal reveal-delay-1">
         <div class="bonus-title">🎁 Бонус 4: Somniora Software</div>
         <div class="bonus-meta"><span class="bonus-value">29,90 €</span><span class="bonus-free">→ БЕЗПЛАТНО</span></div>
-        <p class="bonus-desc">Дигитален инструмент с четири компонента: <strong>Дневник на съня</strong> — записваш как е минала нощта, без да гадаеш дали се подобряваш. <strong>Личен план</strong> — адаптиран към твоя ритъм и ситуация. <strong>Адаптивен план</strong> — коригира се спрямо напредъка ти. <strong>Проследяване на напредъка</strong> — виждаш нагледно как се променя картината нощ след нощ. Вместо да се питаш „работи ли изобщо?" — виждаш отговора.</p>
+        <p class="bonus-desc">Дигитален инструмент с четири компонента: <strong>Дневник на съня</strong>, <strong>Личен план</strong>, <strong>Адаптивен план</strong> и <strong>Проследяване на напредъка</strong>. Достъпът се активира след покупка в <a href="https://30-dni-po-dobar-sun.netlify.app/academy">Somniora Academy</a>.</p>
       </div>
 
       <div class="bonus-box reveal reveal-delay-2">
         <div class="bonus-title">🎁 Бонус 5: 30-дневна Somniora поддръжка след основната програма</div>
         <div class="bonus-meta"><span class="bonus-value">14,90 €</span><span class="bonus-free">→ БЕЗПЛАТНО</span></div>
-        <p class="bonus-desc">Защото промяната не спира на 14-ия ден. Somniora продължава да те следи, да адаптира плана и да дава насоки — така че резултатите, постигнати по време на програмата, да се запазят и задълбочат. За по-концентрирани дни, за по-търпеливо присъствие с близките и за усещането, че сънят вече не е проблемът, около който се върти животът ти.</p>
+        <p class="bonus-desc">Somniora продължава да адаптира плана и да дава насоки 30 дни след програмата — включително седмични check-in материали в Academy. Достъп след покупка на <a href="https://30-dni-po-dobar-sun.netlify.app/academy">Somniora Academy</a>.</p>
       </div>
 
       <div class="total-value">Обща стойност на всичко: <strong>149,40 €</strong></div>
@@ -620,16 +638,16 @@ footer a:hover { color: var(--primary-2); }
           <tr><td>🎁 Бонус 4: Somniora Software</td><td>29,90 €</td></tr>
           <tr><td>🎁 Бонус 5: 30-дневна Somniora поддръжка</td><td>14,90 €</td></tr>
           <tr class="total-row"><td><strong>Обща стойност</strong></td><td><strong>149,40 €</strong></td></tr>
-          <tr class="price-row"><td><strong>➡️ Само сега</strong></td><td><strong>13,80 €</strong></td></tr>
-          <tr class="save-row"><td>Спестяваш</td><td><strong>135,60 € (91%)</strong></td></tr>
+          <tr class="price-row"><td><strong>➡️ Само сега</strong></td><td><strong>17,00 €</strong></td></tr>
+          <tr class="save-row"><td>Спестяваш</td><td><strong>132,40 € (89%)</strong></td></tr>
         </tbody>
       </table>
 
       <div class="price-section">
         <div class="price-original">149,40 €</div>
-        <span class="price-current"><span class="price-currency">€</span>13,80</span>
+        <span class="price-current"><span class="price-currency">€</span>17,00</span>
         <div class="price-label">еднократно плащане · моментален достъп</div>
-        <span class="price-save">Спестяваш 135,60 € (91% отстъпка)</span>
+        <span class="price-save">Спестяваш 132,40 € (89% отстъпка)</span>
       </div>
 
       <div class="urgency-box">
@@ -637,14 +655,19 @@ footer a:hover { color: var(--primary-2); }
         <span class="timer" id="timer2">23:59:46</span>
       </div>
 
-      <a href="#order" class="btn-cta">🌙 Искам да знам какво да правя, когато сънят не идва →</a>
-      <p class="btn-sub">🔒 Сигурно плащане &nbsp;•&nbsp; Веднага получаваш достъп &nbsp;•&nbsp; 14-дневна гаранция</p>
+      <a href="https://30-dni-po-dobar-sun.netlify.app/checkout" class="btn-cta">🌙 Искам да знам какво да правя, когато сънят не идва →</a>
+      <p class="btn-sub">🔒 Сигурно плащане &nbsp;•&nbsp; Веднага получаваш достъп &nbsp;•&nbsp; 7-дневна гаранция</p>
+
+      <div class="delivery-box reveal">
+        <strong>Как получаваш достъп след плащане</strong>
+        <p style="margin:10px 0 0;">След успешно плащане получаваш имейл с инструкции и достъп до програмата, бонусите и Somniora инструментите в <a href="https://30-dni-po-dobar-sun.netlify.app/academy">Somniora Academy</a>. Моментален достъп след потвърждение на поръчката.</p>
+      </div>
 
       <div class="guarantee">
         <div class="guarantee-icon">🛡️</div>
         <div>
-          <div class="guarantee-title">14-дневна гаранция за връщане на парите</div>
-          <p class="guarantee-text">Разполагаш с 14-дневна гаранция. Ако в рамките на този период прецениш, че програмата не е подходяща за теб, свържи се с нас и ще ти възстановим заплатената сума. Без обяснения. Нямаш какво да губиш — освен поредната нощ без ясен план.</p>
+          <div class="guarantee-title">7-дневна гаранция за връщане на парите</div>
+          <p class="guarantee-text">Разполагаш с 7-дневна гаранция. Ако в рамките на 7 дни след покупката прецениш, че програмата не е подходяща за теб, свържи се с нас на hello@somniora.bg и ще ти възстановим заплатената сума. Без обяснения. Нямаш какво да губиш — освен поредната нощ без ясен план.</p>
         </div>
       </div>
     </div>
@@ -657,42 +680,42 @@ footer a:hover { color: var(--primary-2); }
   <p class="reveal" style="text-align:center; color:var(--text-light); margin-bottom:32px;">Ето отговорите на най-честите въпроси</p>
 
   <div class="faq-item reveal">
-    <div class="faq-q">1️⃣ Вече съм пробвал книги и техники за сън — защо това ще е различно? <span class="faq-icon">+</span></div>
+    <button type="button" class="faq-q" aria-expanded="false">1️⃣ Вече съм пробвал книги и техники за сън — защо това ще е различно? <span class="faq-icon">+</span></button>
     <div class="faq-body"><div class="faq-body-inner">Повечето книги и техники се фокусират върху симптома — мислите или умората — и се опитват да ги потиснат. Методът на Бутзин работи на различно ниво: адресира погрешната условна връзка между леглото и будуването, която се е изградила с времето. Вместо да се биеш с мислите, следваш структуриран процес, който постепенно възстановява правилната връзка — ЛЕГЛО = СЪН. Това е принципно различен подход — не поредна колекция от съвети, а ясна последователност с логика зад всяка стъпка.</div></div>
   </div>
 
   <div class="faq-item reveal reveal-delay-1">
-    <div class="faq-q">2️⃣ Ами ако и това не сработи за мен? Вече съм разочарован толкова пъти. <span class="faq-icon">+</span></div>
-    <div class="faq-body"><div class="faq-body-inner">Затова съществува 14-дневната гаранция. Ако в рамките на 14 дни прецениш, че програмата не е подходяща за теб, свържи се с нас и ти връщаме заплатената сума. Без обяснения. Рискуваш 13,80 € — и ако не работи, получаваш ги обратно. Нямаш нищо да губиш, освен поредната нощ без план.</div></div>
+    <button type="button" class="faq-q" aria-expanded="false">2️⃣ Ами ако и това не сработи за мен? Вече съм разочарован толкова пъти. <span class="faq-icon">+</span></button>
+    <div class="faq-body"><div class="faq-body-inner">Затова съществува 7-дневната гаранция. Ако в рамките на 7 дни след покупката прецениш, че програмата не е подходяща за теб, свържи се с нас на hello@somniora.bg и ти връщаме заплатената сума. Без обяснения. Рискуваш 17 € — и ако не работи, получаваш ги обратно. Нямаш нищо да губиш, освен поредната нощ без план.</div></div>
   </div>
 
   <div class="faq-item reveal reveal-delay-2">
-    <div class="faq-q">3️⃣ Трябва ли да правя сложен вечерен ритуал? <span class="faq-icon">+</span></div>
+    <button type="button" class="faq-q" aria-expanded="false">3️⃣ Трябва ли да правя сложен вечерен ритуал? <span class="faq-icon">+</span></button>
     <div class="faq-body"><div class="faq-body-inner">Не. Протоколите в програмата са разработени специално за хора с натоварен живот, без свободен час преди лягане. Действията са кратки и ясни — и се изпълняват стъпка по стъпка, без нужда от специална подготовка или перфектна среда. Това е едно от ключовите изисквания при разработването на плана — да е приложим дори в претоварени вечери.</div></div>
   </div>
 
   <div class="faq-item reveal">
-    <div class="faq-q">4️⃣ Проблемът ми е стресът от работата — може ли план за сън да помогне? <span class="faq-icon">+</span></div>
+    <button type="button" class="faq-q" aria-expanded="false">4️⃣ Проблемът ми е стресът от работата — може ли план за сън да помогне? <span class="faq-icon">+</span></button>
     <div class="faq-body"><div class="faq-body-inner">Методът не премахва стреса от живота ти. Но ти дава конкретен процес за управление на онова, което се случва след лягане — независимо от нивото на стрес. „Системата Легло–Сън" не изисква стресът да изчезне, за да работи. Работи паралелно с него. Много от хората, следвали плана, имат натоварена работа и семейни отговорности — и именно за тях е създаден.</div></div>
   </div>
 
   <div class="faq-item reveal reveal-delay-1">
-    <div class="faq-q">5️⃣ Безсънието е наследствено при нас в семейството — може ли изобщо да се промени? <span class="faq-icon">+</span></div>
+    <button type="button" class="faq-q" aria-expanded="false">5️⃣ Безсънието е наследствено при нас в семейството — може ли изобщо да се промени? <span class="faq-icon">+</span></button>
     <div class="faq-body"><div class="faq-body-inner">Погрешната условна връзка между леглото и будуването не е наследствена — тя се е изградила с времето чрез повторение. И понеже се е изградила чрез повторение, може да бъде променена чрез нов структуриран процес. Именно това прави Методът на Бутзин — не се бори с генетиката, а работи с механизма, който можеш да повлияеш.</div></div>
   </div>
 
   <div class="faq-item reveal reveal-delay-2">
-    <div class="faq-q">6️⃣ Колко бързо ще усетя разлика? <span class="faq-icon">+</span></div>
+    <button type="button" class="faq-q" aria-expanded="false">6️⃣ Колко бързо ще усетя разлика? <span class="faq-icon">+</span></button>
     <div class="faq-body"><div class="faq-body-inner">Програмата е 14-дневна — и промяната е постепенна, не моментална. Повечето хора усещат разлика в подхода си към леглото и мислите в рамките на първата седмица. Пълният процес изисква честно следване на плана за 14 дни. Somniora ти помага да проследяваш напредъка нощ след нощ — така виждаш промяната дори когато не я усещаш ясно.</div></div>
   </div>
 
   <div class="faq-item reveal">
-    <div class="faq-q">7️⃣ Ще трябва ли да ползвам добавки или хапчета заедно с програмата? <span class="faq-icon">+</span></div>
+    <button type="button" class="faq-q" aria-expanded="false">7️⃣ Ще трябва ли да ползвам добавки или хапчета заедно с програмата? <span class="faq-icon">+</span></button>
     <div class="faq-body"><div class="faq-body-inner">Не. Методът на Бутзин работи изцяло без добавки, медикаменти или устройства. Основан е на поведенчески и когнитивни принципи — неща, които правиш, а не вещества, които приемаш. Точно затова и резултатите са трайни — не зависят от нещо външно.</div></div>
   </div>
 
   <div class="faq-item reveal reveal-delay-1">
-    <div class="faq-q">8️⃣ Каква е разликата между Бонус 1, Бонус 2 и основния план? <span class="faq-icon">+</span></div>
+    <button type="button" class="faq-q" aria-expanded="false">8️⃣ Каква е разликата между Бонус 1, Бонус 2 и основния план? <span class="faq-icon">+</span></button>
     <div class="faq-body"><div class="faq-body-inner">Основният план адресира общата погрешна връзка между леглото и будуването — структурата на 14-те дни. Бонус 1 „7-дневно Затваряне на деня" се фокусира върху конкретния проблем с мислите за деня — работа, разговори, задачи — преди изобщо да легнеш. Бонус 2 „Стоп на часовниковите сметки" е за конкретния момент, в който видиш часа нощем и паниката започне. Трите работят заедно като система — всеки покрива различна точка от проблема.</div></div>
   </div>
 </div>
@@ -705,9 +728,9 @@ footer a:hover { color: var(--primary-2); }
   <p style="margin-top:14px; font-size:12px; line-height:1.8;">Резултатите могат да се различават при отделните потребители. Програмата не замества медицинска диагностика или лечение. При сериозни здравословни проблеми се консултирайте с лекар.</p>
   <p style="margin-top:12px;">© 2026 Методът на Бутзин. Всички права запазени.</p>
   <div class="footer-links">
-    <a href="#order">Политика за поверителност</a>
-    <a href="#order">Условия за ползване</a>
-    <a href="#order">Контакт</a>
+    <a href="/privacy.html">Политика за поверителност</a>
+    <a href="/terms.html">Условия за ползване</a>
+    <a href="/contact.html">Контакт</a>
   </div>
 </footer>
 
@@ -716,9 +739,9 @@ footer a:hover { color: var(--primary-2); }
   <div class="floating-inner">
     <div class="floating-text">
       🌙 <strong>Методът на Бутзин</strong> + 5 бонуса
-      <span>14-дневен план за по-спокойно заспиване — само <strong style="color:var(--accent)">13,80 €</strong></span>
+      <span>14-дневен план за по-спокойно заспиване — само <strong style="color:var(--accent)">17,00 €</strong></span>
     </div>
-    <a href="#order" class="btn-cta">🌙 Искам плана →</a>
+    <a href="https://30-dni-po-dobar-sun.netlify.app/checkout" class="btn-cta">🌙 Искам плана →</a>
   </div>
 </div>
 
@@ -747,10 +770,12 @@ document.querySelectorAll('.faq-q').forEach(q => {
     const isOpen = q.classList.contains('open');
     document.querySelectorAll('.faq-q.open').forEach(other => {
       other.classList.remove('open');
+      other.setAttribute('aria-expanded', 'false');
       other.nextElementSibling.style.maxHeight = '0';
     });
     if (!isOpen) {
       q.classList.add('open');
+      q.setAttribute('aria-expanded', 'true');
       const body = q.nextElementSibling;
       body.style.maxHeight = body.scrollHeight + 'px';
     }
