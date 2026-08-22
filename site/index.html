@@ -116,6 +116,9 @@ p { margin: 13px 0; }
 .hero h1 { color: white; }
 .hero h1 em { font-style: normal; color: var(--accent); }
 .hero .hero-sub { color: rgba(255,255,255,0.62); font-size: 17px; margin-top: 14px; font-weight: 400; line-height: 1.75; max-width: 580px; }
+.hero-product { margin: 28px auto 4px; max-width: min(100%, 340px); }
+.hero-product img { width: 100%; height: auto; display: block; border-radius: 16px; box-shadow: 0 24px 64px rgba(0,0,0,0.45), 0 0 48px rgba(99,102,241,0.22); }
+@media (min-width: 768px) { .hero-product { max-width: 400px; margin-top: 32px; } }
 .hero-divider { width: 60px; height: 3px; background: linear-gradient(90deg, var(--primary), var(--primary-2)); border-radius: 3px; margin: 24px 0; }
 
 /* БЕЗ СЕКЦИЯ */
@@ -301,7 +304,18 @@ footer a:hover { color: var(--primary-2); }
   <div class="wrap">
     <div class="callout-badge">🌙 За хора, които вечер са изморени. Но умът им не спира</div>
 
-    <h1>Планът на Бутзин помогна на над 1,000 пълнолетни хора, включително такива, които <em>от години не заспиват спокойно</em>, да спрат да се борят с мислите след лягане и да знаят какво да правят, когато сънят не идва</h1>
+    <h1>Планът на Бутзин помогна на над 1,000 хора, включително такива, които <em>не са спали от години</em>, да спрат да се борят с мислите след лягане и да знаят какво да правят, когато сънят не идва</h1>
+
+    <figure class="hero-product">
+      <img
+        src="/brand/book-mockup-bootzin-14.png"
+        alt="Методът на Бутзин: 14-дневен план за по-спокойно заспиване"
+        width="800"
+        height="1000"
+        fetchpriority="high"
+        decoding="async"
+      >
+    </figure>
 
     <div class="hero-divider"></div>
     <p class="hero-sub">С Системата Легло–Сън от Метода на Бутзин. Без хапчета, без сложни ритуали. Можеш да започнеш още следващата трудна вечер.</p>
