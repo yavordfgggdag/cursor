@@ -934,3 +934,168 @@ footer {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
+
+/* -------------------------------------------------------------------------
+   9. Phase 5D step 10 — full offer composition + Somniora teasers
+   2-col only at ≥1440; 1024–1439 stacks mockup first. Bonuses stay in a
+   native <details> accordion. No /somniora links. Hooks #order, .offer-box,
+   #timer2, long CTA, and prices stay unchanged.
+   ------------------------------------------------------------------------- */
+
+.offer-composition-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+#order .offer-composition-grid > .offer-box {
+  margin: 0;
+}
+
+.offer-product {
+  margin: 0 auto;
+  max-width: min(100%, 340px);
+}
+
+.offer-product img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-3), 0 0 48px var(--color-primary-glow);
+}
+
+.offer-bonuses {
+  margin: 0 0 var(--space-6);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  padding: 0 var(--space-4) var(--space-2);
+}
+
+.offer-bonuses > summary {
+  list-style: none;
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  font-weight: 800;
+  color: var(--color-text);
+  min-height: 44px;
+  padding: 12px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.offer-bonuses > summary::-webkit-details-marker {
+  display: none;
+}
+
+.offer-bonuses > summary::after {
+  content: "+";
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(99, 102, 241, 0.1);
+  color: var(--color-primary);
+  font-size: 1.25rem;
+  line-height: 1;
+  font-weight: 300;
+}
+
+.offer-bonuses[open] > summary::after {
+  content: "\00d7";
+  transform: none;
+}
+
+.offer-bonuses > summary:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+.offer-bonuses[open] > summary {
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: var(--space-2);
+}
+
+.somniora-teasers {
+  margin-top: var(--space-8);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+.somniora-card,
+.academy-lesson-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+}
+
+.somniora-card p,
+.academy-lesson-card p {
+  margin: var(--space-3) 0 0;
+  color: var(--color-text-muted);
+  font-size: var(--fs-small);
+  line-height: 1.6;
+}
+
+.asset-placeholder--dashboard,
+.asset-placeholder--academy {
+  aspect-ratio: 16 / 10;
+  min-height: 96px;
+}
+
+.asset-placeholder--dashboard {
+  background:
+    repeating-linear-gradient(90deg, rgba(99, 102, 241, 0.16) 0 10%, transparent 10% 14%),
+    repeating-linear-gradient(180deg, transparent 0 22%, rgba(15, 23, 42, 0.08) 22% 24%),
+    linear-gradient(180deg, #eef0fb, #dfe3f5);
+}
+
+.asset-placeholder--academy {
+  background:
+    repeating-linear-gradient(180deg, rgba(255, 255, 255, 0.7) 0 18%, transparent 18% 28%),
+    linear-gradient(135deg, #e8ebf8, #f4f6ff);
+}
+
+@media (min-width: 768px) {
+  .offer-product {
+    max-width: 400px;
+  }
+
+  .somniora-teasers {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1440px) {
+  #order .wrap.offer-composition {
+    max-width: var(--container-wide);
+  }
+
+  .offer-composition-grid {
+    display: grid;
+    grid-template-columns: minmax(280px, 0.9fr) minmax(0, 1.1fr);
+    align-items: start;
+    gap: var(--space-8);
+  }
+
+  .offer-product {
+    margin: 0;
+    max-width: none;
+    position: sticky;
+    top: var(--space-8);
+  }
+
+  .somniora-teasers {
+    grid-template-columns: 1fr;
+  }
+}
