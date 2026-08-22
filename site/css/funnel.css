@@ -861,3 +861,76 @@ footer {
     background: var(--color-primary-light);
   }
 }
+
+/* -------------------------------------------------------------------------
+   8. Phase 5D step 9 — benefit cards + without pills
+   1 col mobile, 2 col from 768, 3×2 from 1440. Pills are not .bez-item.
+   ------------------------------------------------------------------------- */
+
+.benefits-title {
+  text-align: center;
+}
+
+.benefits-lead {
+  color: var(--color-success);
+  margin-top: 32px;
+}
+
+.benefit-grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+  padding: 0;
+  margin: 16px 0 0;
+}
+
+.benefit-card {
+  background: var(--color-surface-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-1);
+  padding: 18px 20px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-text);
+}
+
+.without-lead {
+  color: var(--color-danger);
+  margin-top: 40px;
+}
+
+.without-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 0;
+  margin: 16px 0 0;
+}
+
+.without-pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text-muted);
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+@media (min-width: 768px) {
+  .benefit-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1440px) {
+  .benefit-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
