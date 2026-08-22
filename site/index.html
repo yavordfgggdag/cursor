@@ -1,0 +1,825 @@
+﻿<!DOCTYPE html>
+<html lang="bg"><head><meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="14-дневен план за по-спокойно заспиване по Метода на Бутзин — без хапчета, с ясен план за всяка трудна вечер.">
+<title>Методът на Бутзин — 14-дневен план за по-спокойно заспиване</title>
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --primary:      #6366F1;
+  --primary-2:    #818CF8;
+  --primary-dark: #4F46E5;
+  --glow:         rgba(99,102,241,.28);
+  --glow-soft:    rgba(99,102,241,.12);
+  --dark:         #0A0F24;
+  --dark-2:       #060A18;
+  --dark-3:       #0F1535;
+  --accent:       #F0C420;
+  --accent-soft:  rgba(240,196,32,.15);
+  --font-display: 'Sora', 'Inter', sans-serif;
+  --font-body:    'Inter', -apple-system, sans-serif;
+  --text:         #1a1a2e;
+  --text-light:   #555577;
+  --bg:           #ffffff;
+  --gray:         #f5f5fa;
+  --gray-2:       #eeeef8;
+  --green:        #27AE60;
+  --red:          #E74C3C;
+  --border:       #e0e0ef;
+  --star:         #F0C420;
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); font-size: 17px; color: var(--text); background: var(--bg); line-height: 1.78; overflow-x: hidden; }
+.wrap { max-width: 700px; margin: 0 auto; padding: 0 22px; }
+.section { padding: 65px 0; }
+.section-gray { background: var(--gray); }
+.section-dark { background: var(--dark); }
+
+h1 { font-family: var(--font-display); font-size: clamp(27px, 5vw, 44px); font-weight: 800; line-height: 1.12; margin: 22px 0; letter-spacing: -0.6px; }
+h2 { font-family: var(--font-display); font-size: clamp(21px, 4vw, 31px); font-weight: 700; margin: 32px 0 16px; line-height: 1.22; }
+h3 { font-family: var(--font-display); font-size: 20px; font-weight: 700; margin: 20px 0 10px; }
+p { margin: 13px 0; }
+
+.gradient-text { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-2) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.accent-text { background: linear-gradient(135deg, var(--accent) 0%, #FFD24C 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+/* SCROLL PROGRESS */
+#scroll-progress { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, var(--primary), var(--primary-2), var(--accent)); width: 0%; z-index: 9999; transition: width 0.1s linear; }
+
+/* ANIMATIONS */
+@keyframes pulse-glow {
+  0%,100% { box-shadow: 0 6px 24px var(--glow); }
+  50% { box-shadow: 0 6px 50px var(--glow), 0 0 80px var(--glow); }
+}
+@keyframes drift {
+  0% { transform: translate(0,0) scale(1); }
+  33% { transform: translate(35px,-25px) scale(1.05); }
+  66% { transform: translate(-20px,20px) scale(0.97); }
+  100% { transform: translate(0,0) scale(1); }
+}
+@keyframes drift2 {
+  0% { transform: translate(0,0) scale(1); }
+  50% { transform: translate(-40px,30px) scale(1.08); }
+  100% { transform: translate(0,0) scale(1); }
+}
+@keyframes float-star {
+  0%,100% { transform: translateY(0px); opacity: 0.5; }
+  50% { transform: translateY(-12px); opacity: 1; }
+}
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.12s; }
+.reveal-delay-2 { transition-delay: 0.24s; }
+.reveal-delay-3 { transition-delay: 0.36s; }
+
+/* STARS */
+.stars-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; pointer-events: none; }
+.star { position: absolute; width: 2px; height: 2px; background: white; border-radius: 50%; animation: float-star linear infinite; }
+
+/* TOP BAR */
+.top-bar { background: linear-gradient(90deg, #3730a3, var(--primary), #3730a3); color: white; text-align: center; padding: 13px 20px; font-weight: 700; font-size: 14px; letter-spacing: 0.2px; position: relative; overflow: hidden; }
+.top-bar::after { content: ''; position: absolute; top: 0; left: -100%; width: 60%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent); animation: shimmer 3s ease-in-out infinite; }
+
+/* HERO */
+.hero { background: linear-gradient(160deg, var(--dark-2) 0%, var(--dark) 50%, var(--dark-3) 100%); padding: 55px 0 65px; position: relative; overflow: hidden; }
+.hero-blob-1 { position: absolute; top: -30%; left: -20%; width: 70%; height: 100%; background: radial-gradient(circle, rgba(99,102,241,0.22) 0%, transparent 65%); pointer-events: none; animation: drift 16s ease-in-out infinite; }
+.hero-blob-2 { position: absolute; bottom: -40%; right: -20%; width: 65%; height: 110%; background: radial-gradient(circle, rgba(129,140,248,0.18) 0%, transparent 65%); pointer-events: none; animation: drift2 20s ease-in-out infinite; }
+.hero-blob-3 { position: absolute; top: 20%; right: 10%; width: 30%; height: 50%; background: radial-gradient(circle, rgba(240,196,32,0.08) 0%, transparent 65%); pointer-events: none; animation: drift 24s ease-in-out infinite reverse; }
+.hero .wrap { position: relative; z-index: 1; }
+
+.callout-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(99,102,241,0.15); border: 1px solid rgba(99,102,241,0.4); color: var(--primary-2); padding: 9px 22px; border-radius: 50px; font-size: 13px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 24px; }
+.hero h1 { color: white; }
+.hero h1 em { font-style: normal; color: var(--accent); }
+.hero .hero-sub { color: rgba(255,255,255,0.62); font-size: 17px; margin-top: 14px; font-weight: 400; line-height: 1.75; max-width: 580px; }
+.hero-divider { width: 60px; height: 3px; background: linear-gradient(90deg, var(--primary), var(--primary-2)); border-radius: 3px; margin: 24px 0; }
+
+/* БЕЗ СЕКЦИЯ */
+.bez-intro { color: rgba(255,255,255,0.5); font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin: 28px 0 14px; }
+.bez-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 0 0 10px; }
+.bez-item { font-size: 14px; padding: 11px 15px; background: rgba(231,76,60,0.12); border-radius: 10px; border-left: 3px solid rgba(231,76,60,0.7); color: rgba(255,255,255,0.78); font-weight: 500; line-height: 1.45; display: flex; align-items: flex-start; gap: 8px; }
+.bez-item::before { content: "❌"; flex-shrink: 0; font-size: 13px; margin-top: 1px; }
+@media(max-width:520px){ .bez-grid { grid-template-columns: 1fr; } }
+
+/* OFFER BOX */
+.offer-box { background: white; border: 2px solid rgba(99,102,241,0.35); border-radius: 20px; padding: 38px; margin: 30px 0; position: relative; box-shadow: 0 10px 50px rgba(99,102,241,0.18); }
+.offer-badge { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, var(--primary), var(--primary-2)); color: white; font-size: 12px; font-weight: 800; letter-spacing: 1.5px; padding: 7px 22px; border-radius: 50px; white-space: nowrap; text-transform: uppercase; box-shadow: 0 4px 15px var(--glow); }
+.product-title { font-family: var(--font-display); font-size: 22px; font-weight: 800; margin: 16px 0 8px; color: var(--text); line-height: 1.3; }
+.product-desc { color: var(--text-light); font-size: 16px; margin-bottom: 22px; line-height: 1.7; }
+
+.bonus-box { background: var(--gray); border: 1px solid rgba(99,102,241,0.2); border-left: 4px solid var(--primary); border-radius: 12px; padding: 18px 22px; margin: 12px 0; transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s; }
+.bonus-box:hover { transform: translateX(6px); box-shadow: 0 4px 20px var(--glow-soft); border-color: rgba(99,102,241,0.4); }
+.bonus-title { font-weight: 800; font-size: 16px; margin-bottom: 6px; color: var(--text); }
+.bonus-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; flex-wrap: wrap; }
+.bonus-value { color: #bbb; text-decoration: line-through; font-size: 14px; }
+.bonus-free { color: var(--green); font-weight: 800; font-size: 14px; background: rgba(39,174,96,0.1); padding: 2px 10px; border-radius: 50px; }
+.bonus-desc { font-size: 15px; color: #555; margin: 0; line-height: 1.6; }
+
+.total-value { background: var(--gray-2); border: 1px solid rgba(99,102,241,0.15); border-radius: 12px; padding: 16px 20px; text-align: center; margin: 22px 0 6px; font-size: 15px; color: var(--text-light); }
+.total-value strong { font-size: 19px; color: var(--text); font-family: var(--font-display); }
+
+.price-section { text-align: center; margin: 22px 0; padding: 24px; background: linear-gradient(135deg, rgba(99,102,241,0.05), rgba(129,140,248,0.08)); border-radius: 16px; border: 1px dashed rgba(99,102,241,0.25); }
+.price-original { font-size: 19px; color: #bbb; text-decoration: line-through; font-weight: 600; }
+.price-current { font-family: var(--font-display); font-size: 62px; font-weight: 800; color: var(--primary-dark); display: block; line-height: 1; margin: 8px 0; letter-spacing: -3px; }
+.price-currency { font-size: 30px; letter-spacing: 0; }
+.price-label { font-size: 13px; color: #999; margin-bottom: 10px; }
+.price-save { display: inline-block; background: linear-gradient(135deg, #27AE60, #2ecc71); color: white; padding: 7px 20px; border-radius: 50px; font-weight: 700; font-size: 14px; box-shadow: 0 3px 12px rgba(39,174,96,0.3); }
+
+.urgency-box { background: var(--dark); border: 1px solid rgba(99,102,241,0.4); border-radius: 14px; padding: 18px 22px; text-align: center; margin: 20px 0; }
+.urgency-label { font-weight: 700; color: rgba(255,255,255,0.8); font-size: 14px; letter-spacing: 0.3px; }
+.timer { font-family: var(--font-display); font-size: 36px; font-weight: 800; color: var(--primary-2); letter-spacing: 4px; display: block; margin-top: 8px; font-variant-numeric: tabular-nums; text-shadow: 0 0 20px var(--glow); }
+
+.btn-cta { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-2) 100%); color: white !important; padding: 22px 40px; border-radius: 14px; font-size: 18px; font-weight: 800; width: 100%; display: block; text-align: center; text-decoration: none; border: none; cursor: pointer; margin: 20px 0 8px; letter-spacing: 0.3px; position: relative; overflow: hidden; animation: pulse-glow 2.8s ease-in-out infinite; transition: transform 0.2s, filter 0.2s; font-family: var(--font-display); line-height: 1.3; }
+.btn-cta:hover { transform: translateY(-3px); filter: brightness(1.08); }
+.btn-cta::after { content: ''; position: absolute; top: 0; left: -100%; width: 60%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent); animation: shimmer 4s ease-in-out infinite; }
+.btn-sub { text-align: center; font-size: 13px; color: #999; margin: 0 0 18px; }
+
+.guarantee { display: flex; align-items: flex-start; gap: 16px; border: 2px solid rgba(39,174,96,0.4); border-radius: 14px; padding: 20px 22px; margin: 18px 0; background: rgba(39,174,96,0.04); }
+.guarantee-icon { font-size: 36px; flex-shrink: 0; }
+.guarantee-title { font-weight: 800; color: var(--green); font-size: 16px; margin-bottom: 5px; font-family: var(--font-display); }
+.guarantee-text { font-size: 14px; color: #444; line-height: 1.65; margin: 0; }
+
+/* MAIN COPY */
+.copy-section { padding: 65px 0; }
+.copy-section h2 { color: var(--text); }
+.copy-section p { font-size: 17px; margin: 16px 0; line-height: 1.88; }
+.copy-section blockquote { border-left: 4px solid var(--primary); padding: 18px 26px; background: linear-gradient(135deg, rgba(99,102,241,0.06), rgba(129,140,248,0.04)); border-radius: 0 14px 14px 0; margin: 26px 0; font-style: italic; color: #333; font-size: 18px; line-height: 1.75; }
+.copy-section .scene { background: var(--gray); border-radius: 14px; padding: 24px 28px; margin: 22px 0; border-left: 4px solid rgba(99,102,241,0.3); }
+.copy-section .scene p { color: #444; font-size: 16px; margin: 10px 0; }
+.copy-section .scene p:first-child { margin-top: 0; }
+.copy-section .scene p:last-child { margin-bottom: 0; }
+.inner-voice { font-style: italic; color: var(--primary-dark); font-weight: 500; }
+.section-label { font-size: 12px; font-weight: 800; letter-spacing: 2.5px; text-transform: uppercase; color: var(--primary); margin-bottom: 8px; display: block; }
+
+/* КАК РАБОТИ */
+.how-it-works { padding: 65px 0; position: relative; overflow: hidden; }
+.hiw-blob-1 { position: absolute; top: 0%; right: -25%; width: 65%; height: 70%; background: radial-gradient(circle, rgba(99,102,241,0.18) 0%, transparent 65%); pointer-events: none; animation: drift 18s ease-in-out infinite; }
+.hiw-blob-2 { position: absolute; bottom: -20%; left: -15%; width: 55%; height: 60%; background: radial-gradient(circle, rgba(129,140,248,0.12) 0%, transparent 65%); pointer-events: none; animation: drift2 22s ease-in-out infinite; }
+.how-it-works .wrap { position: relative; z-index: 1; }
+.how-it-works h2 { color: white; text-align: center; }
+.how-it-works .intro { color: rgba(255,255,255,0.6); text-align: center; font-size: 17px; margin-bottom: 38px; line-height: 1.75; max-width: 540px; margin-left: auto; margin-right: auto; }
+
+.step-box { background: rgba(255,255,255,0.055); border: 1px solid rgba(99,102,241,0.3); border-radius: 18px; padding: 30px; margin: 18px 0; position: relative; overflow: hidden; transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+.step-box:hover { transform: translateY(-5px); border-color: rgba(99,102,241,0.6); box-shadow: 0 12px 40px rgba(99,102,241,0.2); }
+.step-box::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--primary), var(--primary-2)); border-radius: 4px 0 0 4px; }
+.step-period { display: inline-block; background: rgba(99,102,241,0.2); color: var(--primary-2); padding: 5px 15px; border-radius: 50px; font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 12px; border: 1px solid rgba(99,102,241,0.3); }
+.step-number { font-size: 12px; font-weight: 800; color: rgba(255,255,255,0.35); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 7px; }
+.step-title { font-family: var(--font-display); font-size: 22px; font-weight: 700; color: white; margin-bottom: 14px; line-height: 1.25; }
+.step-desc { color: rgba(255,255,255,0.7); font-size: 16px; line-height: 1.85; margin: 0; }
+.step-desc em { font-style: italic; color: rgba(255,255,255,0.85); }
+
+/* FUTURE PACING */
+.check-list, .cross-list { list-style: none; padding: 0; }
+.check-list li, .cross-list li { padding: 13px 0; font-size: 17px; display: flex; align-items: flex-start; gap: 13px; border-bottom: 1px solid rgba(0,0,0,0.06); line-height: 1.65; }
+.check-list li:last-child, .cross-list li:last-child { border-bottom: none; }
+.check-list li::before { content: "✅"; flex-shrink: 0; margin-top: 1px; }
+.cross-list li::before { content: "❌"; flex-shrink: 0; margin-top: 1px; }
+
+/* VALUE TABLE */
+.value-table { width: 100%; border-collapse: collapse; margin: 22px 0; border-radius: 12px; overflow: hidden; border: 1px solid var(--border); }
+.value-table th { background: var(--dark); color: white; padding: 13px 18px; text-align: left; font-size: 13px; font-weight: 700; letter-spacing: 0.5px; }
+.value-table td { padding: 13px 18px; font-size: 15px; border-bottom: 1px solid var(--border); }
+.value-table tr:last-child td { border-bottom: none; }
+.value-table tr:nth-child(even) td { background: var(--gray); }
+.value-table .total-row td { font-weight: 800; background: var(--gray-2); font-size: 16px; }
+.value-table .price-row td { background: linear-gradient(135deg, rgba(99,102,241,0.08), rgba(129,140,248,0.05)); font-weight: 800; color: var(--primary-dark); font-size: 18px; font-family: var(--font-display); }
+.value-table .save-row td { background: rgba(39,174,96,0.06); color: var(--green); font-weight: 700; }
+.value-strike { color: #bbb; text-decoration: line-through; font-weight: 400; }
+
+/* TESTIMONIALS */
+.testimonial { background: white; border: 1px solid var(--border); border-radius: 16px; padding: 24px 28px; margin: 16px 0; box-shadow: 0 4px 20px rgba(0,0,0,0.05); transition: transform 0.2s, box-shadow 0.2s; position: relative; }
+.testimonial:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(99,102,241,0.12); }
+.testimonial::before { content: '"'; position: absolute; top: -10px; left: 22px; font-size: 60px; color: var(--primary); font-family: Georgia, serif; line-height: 1; opacity: 0.3; }
+.testimonial-text { font-style: italic; color: #333; font-size: 16px; line-height: 1.75; margin-bottom: 14px; padding-top: 8px; }
+.testimonial-author { font-weight: 700; color: var(--text); font-size: 14px; }
+.testimonial-stars { color: var(--star); font-size: 14px; margin-bottom: 6px; }
+
+/* FAQ */
+.faq-item { border: 1px solid var(--border); border-radius: 14px; margin: 11px 0; overflow: hidden; transition: box-shadow 0.2s, border-color 0.2s; }
+.faq-item:hover { box-shadow: 0 4px 20px rgba(99,102,241,0.1); border-color: rgba(99,102,241,0.3); }
+.faq-q { font-weight: 700; font-size: 16px; padding: 20px 26px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; background: white; transition: background 0.2s, color 0.2s; user-select: none; line-height: 1.45; font-family: var(--font-display); }
+.faq-q:hover { background: var(--gray); }
+.faq-q.open { color: var(--primary); background: var(--gray); }
+.faq-icon { font-size: 24px; transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1); flex-shrink: 0; color: var(--primary); font-weight: 300; line-height: 1; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; background: rgba(99,102,241,0.1); border-radius: 50%; }
+.faq-q.open .faq-icon { transform: rotate(45deg); background: rgba(99,102,241,0.2); }
+.faq-body { max-height: 0; overflow: hidden; transition: max-height 0.45s ease; }
+.faq-body-inner { padding: 4px 26px 24px; color: #444; line-height: 1.85; font-size: 16px; border-top: 1px solid var(--border); }
+
+/* FLOATING CTA */
+.floating-cta { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(6,10,24,0.97); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); padding: 13px 20px; z-index: 1000; transform: translateY(100%); transition: transform 0.4s cubic-bezier(0.4,0,0.2,1); border-top: 2px solid rgba(99,102,241,0.5); }
+.floating-cta.show { transform: translateY(0); }
+.floating-inner { max-width: 700px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 15px; flex-wrap: wrap; }
+.floating-text { color: rgba(255,255,255,0.88); font-size: 14px; font-weight: 600; flex: 1; line-height: 1.4; }
+.floating-text strong { color: var(--primary-2); }
+.floating-text span { display: block; font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 2px; }
+.floating-cta .btn-cta { width: auto; padding: 13px 28px; font-size: 15px; margin: 0; animation: none; box-shadow: 0 4px 18px var(--glow); flex-shrink: 0; white-space: nowrap; }
+
+/* SECTION DIVIDER */
+.wave-divider { width: 100%; overflow: hidden; line-height: 0; }
+.wave-divider svg { display: block; }
+
+/* NIGHT SECTION — тъмна за CTA повторение */
+.night-section { background: linear-gradient(160deg, var(--dark-2) 0%, var(--dark) 60%, var(--dark-3) 100%); position: relative; overflow: hidden; padding: 65px 0; }
+.night-blob { position: absolute; top: -30%; right: -20%; width: 65%; height: 120%; background: radial-gradient(circle, rgba(99,102,241,0.2) 0%, transparent 65%); pointer-events: none; animation: drift 20s ease-in-out infinite; }
+.night-section .wrap { position: relative; z-index: 1; }
+.night-section h2 { color: white; text-align: center; }
+.night-section .subtitle { color: rgba(255,255,255,0.6); text-align: center; font-size: 16px; max-width: 500px; margin: 0 auto 30px; line-height: 1.7; }
+
+/* HIGHLIGHT BOX */
+.highlight-box { background: linear-gradient(135deg, rgba(99,102,241,0.08), rgba(129,140,248,0.05)); border: 1px solid rgba(99,102,241,0.25); border-radius: 16px; padding: 28px 32px; margin: 28px 0; }
+.highlight-box h3 { font-family: var(--font-display); color: var(--primary-dark); margin-top: 0; }
+.highlight-box p { color: #444; font-size: 16px; margin: 10px 0; }
+.highlight-box p:last-child { margin-bottom: 0; }
+
+/* FOOTER */
+footer { background: var(--dark-2); color: rgba(255,255,255,0.35); text-align: center; padding: 45px 20px; font-size: 13px; border-top: 1px solid rgba(255,255,255,.06); }
+.footer-brand { font-family: var(--font-display); font-size: 22px; font-weight: 800; color: rgba(255,255,255,0.8); display: block; margin-bottom: 14px; }
+.footer-moon { font-size: 28px; display: block; margin-bottom: 10px; }
+footer p { margin: 7px 0; line-height: 1.7; }
+footer a { color: rgba(255,255,255,0.4); text-decoration: none; margin: 0 14px; transition: color 0.2s; }
+footer a:hover { color: var(--primary-2); }
+.footer-links { margin-top: 18px; }
+
+/* RESPONSIVE */
+@media(max-width: 620px) {
+  h1 { font-size: 25px; letter-spacing: -0.3px; }
+  h2 { font-size: 21px; }
+  .price-current { font-size: 50px; }
+  .btn-cta { font-size: 16px; padding: 19px 24px; }
+  .offer-box { padding: 26px 18px; }
+  .floating-inner { flex-direction: column; align-items: stretch; }
+  .floating-text { text-align: center; }
+  .floating-cta .btn-cta { width: 100%; }
+  .copy-section .scene { padding: 18px 20px; }
+  .step-box { padding: 22px 20px; }
+  .guarantee { flex-direction: column; gap: 10px; }
+  .value-table td, .value-table th { padding: 11px 13px; font-size: 14px; }
+  .testimonial { padding: 20px 20px; }
+}
+</style>
+</head>
+<body>
+
+<div id="scroll-progress"></div>
+
+<!-- TOP BAR -->
+<div class="top-bar">🌙 &nbsp;<strong>Внимание:</strong> Специалната цена + всички 5 бонуса са налични само за ограничено време</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-blob-1"></div>
+  <div class="hero-blob-2"></div>
+  <div class="hero-blob-3"></div>
+  <div class="wrap">
+    <div class="callout-badge">🌙 Специално за хора, изморени физически — с ум, който не спира</div>
+
+    <h1>Нов 14-дневен план помогна на над 1,000 пълнолетни хора — включително такива, <em>не спящи спокойно от години</em> — да спрат да се борят с мислите след лягане и накрая да знаят точно какво да правят, когато сънят не идва</h1>
+
+    <div class="hero-divider"></div>
+    <p class="hero-sub">Благодарение на „Системата Легло–Сън" от Метода на Бутзин — без хапчета, без сложни ритуали, приложимо още следващата трудна вечер</p>
+
+    <div class="bez-intro">Без нужда от:</div>
+    <div class="bez-grid">
+      <div class="bez-item">чайове, мелатонин и магнезий</div>
+      <div class="bez-item">хапчета за сън и страх от зависимост</div>
+      <div class="bez-item">медитация, която „трябва да изчисти ума"</div>
+      <div class="bez-item">дихателни техники, спиращи след 2 дни</div>
+      <div class="bez-item">сложен вечерен ритуал от 1–2 часа</div>
+      <div class="bez-item">коренни промени в живота и работата</div>
+      <div class="bez-item">перфектна тъмна и тиха стая</div>
+      <div class="bez-item">премахване на стреса от живота</div>
+    </div>
+  </div>
+</section>
+
+<!-- ОФЕРТА 1 — кратко -->
+<div class="section-gray" style="padding:55px 0;">
+<div class="wrap">
+  <div class="offer-box reveal">
+    <div class="offer-badge">🌙 СПЕЦИАЛНА ОФЕРТА — ОГРАНИЧЕНО ВРЕМЕ</div>
+    <div class="product-title">📗 Методът на Бутзин — 14-дневен план за по-спокойно заспиване</div>
+    <p class="product-desc">Структуриран процес, основан на „Системата Легло–Сън" — за да спреш да се биеш с мислите след лягане и да знаеш точно какво да правиш всяка трудна вечер.</p>
+
+    <div class="bonus-box reveal reveal-delay-1">
+      <div class="bonus-title">🎁 Бонус 1: Мини програма „7-дневно Затваряне на деня"</div>
+      <div class="bonus-meta"><span class="bonus-value">19,90 €</span><span class="bonus-free">→ БЕЗПЛАТНО</span></div>
+      <p class="bonus-desc">За когато мозъкът ти премисля деня след лягане — краткият протокол, който казва на мозъка „денят приключи"</p>
+    </div>
+
+    <div class="bonus-box reveal reveal-delay-2">
+      <div class="bonus-title">🎁 Бонус 2: „Стоп на часовниковите сметки"</div>
+      <div class="bonus-meta"><span class="bonus-value">9,90 €</span><span class="bonus-free">→ БЕЗПЛАТНО</span></div>
+      <p class="bonus-desc">За нощите, когато пресмяташ колко сън ти остава — точните стъпки за следващите минути след като видиш часа</p>
+    </div>
+
+    <div class="bonus-box reveal">
+      <div class="bonus-title">🎁 Бонус 3: Аудио пакет „Тиха вечер"</div>
+      <div class="bonus-meta"><span class="bonus-value">24,90 €</span><span class="bonus-free">→ БЕЗПЛАТНО</span></div>
+      <p class="bonus-desc">За по-лесно отпускане и заспиване — поддръжка към основния план без нужда от концентрация</p>
+    </div>
+
+    <div class="bonus-box reveal reveal-delay-1">
+      <div class="bonus-title">🎁 Бонус 4: Somniora Software</div>
+      <div class="bonus-meta"><span class="bonus-value">29,90 €</span><span class="bonus-free">→ БЕЗПЛАТНО</span></div>
+      <p class="bonus-desc">Дневник на съня + Личен план + Адаптивен план + Проследяване на напредъка — виждаш промяната нощ след нощ</p>
+    </div>
+
+    <div class="bonus-box reveal reveal-delay-2">
+      <div class="bonus-title">🎁 Бонус 5: 30-дневна Somniora поддръжка</div>
+      <div class="bonus-meta"><span class="bonus-value">14,90 €</span><span class="bonus-free">→ БЕЗПЛАТНО</span></div>
+      <p class="bonus-desc">Продължена подкрепа за един месец след края на 14-дневния план — за по-концентрирани дни и по-присъстващ живот</p>
+    </div>
+
+    <div class="total-value">Обща стойност на всичко: <strong>149,40 €</strong></div>
+
+    <div class="price-section">
+      <div class="price-original">149,40 €</div>
+      <span class="price-current"><span class="price-currency">€</span>13,80</span>
+      <div class="price-label">еднократно плащане · моментален достъп</div>
+      <span class="price-save">Спестяваш 135,60 € (91% отстъпка)</span>
+    </div>
+
+    <div class="urgency-box">
+      <div class="urgency-label">⏰ Тази цена е достъпна само до изтичане на:</div>
+      <span class="timer" id="timer1">23:59:46</span>
+    </div>
+
+    <a href="#order" class="btn-cta">🌙 Искам да знам какво да правя, когато сънят не идва →</a>
+    <p class="btn-sub">🔒 Сигурно плащане &nbsp;•&nbsp; Веднага получаваш достъп &nbsp;•&nbsp; 14-дневна гаранция</p>
+
+    <div class="guarantee">
+      <div class="guarantee-icon">🛡️</div>
+      <div>
+        <div class="guarantee-title">14-дневна гаранция за връщане на парите</div>
+        <p class="guarantee-text">Ако в рамките на 14 дни прецениш, че програмата не е подходяща за теб, свържи се с нас и ти връщаме заплатената сума. Без въпроси. Нямаш какво да губиш — освен поредната нощ без ясен план.</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- MAIN COPY -->
+<div class="wrap copy-section">
+
+  <span class="section-label">Разпознаваш ли се?</span>
+  <h2 class="reveal">Случвало ли ти се е да легнеш вечерта — и точно тогава всичко да започне...</h2>
+
+  <p class="reveal">Искаш ли да легнеш вечерта и да знаеш точно какво да направиш — дори ако умът ти редовно тръгва на „втора смяна" след лягане и вече си пробвал куп неща без траен резултат?</p>
+
+  <p class="reveal">Ето как изглежда за повечето хора...</p>
+
+  <div class="scene reveal">
+    <p>Свършва денят.</p>
+    <p>Прибираш се. Вечеряш. Може би гледаш нещо накратко.</p>
+    <p>Тялото ти е изтощено — краката тежат, очите горят, едва чакаш леглото.</p>
+    <p>Лягаш. Затваряш очи.</p>
+    <p>И точно тогава...</p>
+    <p class="inner-voice">„Чакай — утре трябва да изпратя онзи имейл."</p>
+    <p class="inner-voice">„Защо казах така на колегата? Как ли го е разбрал?"</p>
+    <p class="inner-voice">„Сметката за тока... забравих да я платя."</p>
+    <p class="inner-voice">„Ако не заспя скоро, ще имам само 5 часа. Може и 4."</p>
+    <p>Завърташ се на другата страна. Казваш си: <strong>„Стига. Заспивай."</strong></p>
+    <p>Ставаш още по-буден.</p>
+  </div>
+
+  <div class="scene reveal">
+    <p>Поглеждаш часовника. 01:17.</p>
+    <p>В теб се появява онова познато стягане...</p>
+    <p class="inner-voice">„Пак тази вечер. Защо не мога просто да заспя?"</p>
+    <p class="inner-voice">„Утре ще съсипя деня. Ще съм зомби на срещата."</p>
+    <p class="inner-voice">„Другите хора как го правят — легнат и заспиват?"</p>
+    <p>Но не знаеш какво точно да направиш в тази секунда...</p>
+    <p>Чувстваш се безсилен пред собствените си мисли...</p>
+    <p><strong>Уморено тяло, будна глава — нямаш изход.</strong></p>
+  </div>
+
+  <blockquote class="reveal">„Толкова съм уморен физически, но главата ми не спира. Пробвал съм всичко. Нищо не работи трайно. Може би просто аз съм такъв."</blockquote>
+
+  <p class="reveal">Ако това ти звучи познато — продължи да четеш.</p>
+  <p class="reveal">Защото проблемът не е в теб. И решението е по-просто, отколкото мислиш.</p>
+
+  <hr style="border:none; border-top:1px solid var(--border); margin:40px 0;">
+
+  <span class="section-label reveal">Вината не е в теб</span>
+  <h2 class="reveal">Уелнес индустрията те е карала да вярваш в грешното нещо</h2>
+
+  <p class="reveal">Не е, че нямаш дисциплина. Не е, че си „твърде тревожен тип личност". Не е, че не се стараеш достатъчно.</p>
+
+  <p class="reveal">Уелнес индустрията и производителите на добавки са те накарали да вярваш, че решението е в следващия чай, следващото приложение за медитация, следващата дихателна техника. Те имат финансов интерес да вярваш, че имаш нужда от техния продукт. Иначе ще спреш да купуваш.</p>
+
+  <p class="reveal">Освен това самото общество ти е казвало от години: <em>„Просто се уморявай повече физически. Спри с телефона. Ляж по-рано. Брой овце."</em> Сякаш не знаеш кога си уморен. Сякаш не искаш да спиш.</p>
+
+  <p class="reveal">А „гурутата за продуктивност" добавят: <em>„Важните хора спят малко. Безсънието е цената за успешен живот."</em> И така — вместо да потърсиш решение, ти се самообвиняваш, че имаш проблем изобщо.</p>
+
+  <p class="reveal">Никой не ти е казвал <strong>как точно се изгражда погрешната връзка между леглото и будуването</strong> — и как се поправя. Защото тази информация не продава чай.</p>
+
+  <hr style="border:none; border-top:1px solid var(--border); margin:40px 0;">
+
+  <span class="section-label reveal">Защо досегашните неща не работят</span>
+  <h2 class="reveal">Виждаш препоръки навсякъде... и бързо разбираш защо не работят</h2>
+
+  <p class="reveal">Лайка. Валериан. Мелатонин. Магнезий. Бял шум. Медитация преди сън. „Спри с телефона час по-рано." Дихателната техника 4-7-8. Ранно лягане в 22:00. Броене назад от 300. Може би вече си пробвал повечето от тях...</p>
+
+  <p class="reveal">Чаят успокоява тялото — но мислите за утрешната среща продължават. Медитацията те учи да „изчистиш ума" — но умът ти не изчиства. Той само сменя темата. Дихателната техника работи три нощи — и после спира, защото коренът на проблема не е в дишането.</p>
+
+  <p class="reveal">А когато се опитваш насила да заспиш — ставаш още по-буден. Усилието само по себе си е проблем.</p>
+
+  <p class="reveal">Междувременно нощите се трупат. Сутрините стават по-тежки. Кафето вече едва помага. И онова усещане — <em>„може би просто съм такъв и не мога да се оправя"</em> — се настанява все по-дълбоко.</p>
+
+  <hr style="border:none; border-top:1px solid var(--border); margin:40px 0;">
+
+  <span class="section-label reveal">Истинската причина</span>
+  <h2 class="reveal">„Системата Легло–Сън" — защо натискаш газта с вдигната ръчна спирачка</h2>
+
+  <p class="reveal">Повечето хора вярват, че проблемът им е стресът, мислите или умората. Разбираемо е — стресът се усеща ясно, мислите са очевидни, умората е реална.</p>
+
+  <p class="reveal">Но истинската причина е различна.</p>
+
+  <div class="highlight-box reveal">
+    <h3>📖 Какво всъщност се случва</h3>
+    <p>Когато редовно лежиш буден, мислиш, гледаш часа и се опитваш насила да заспиш — леглото постепенно престава да се свързва със сън и почивка.</p>
+    <p>То започва да се свързва с нещо друго: с мисли, с напрежение, с будуване. Мозъкът ти буквално се учи: <strong>„Легло = активност."</strong></p>
+    <p>Затова — колкото по-дълго лежиш буден, толкова по-силно се затвърждава тази грешна връзка. Колкото повече се стараеш да заспиш, толкова по-буден ставаш. Не защото нещо не е наред с теб. А защото натискаш газта, докато ръчната спирачка е вдигната.</p>
+  </div>
+
+  <p class="reveal">Изследванията на д-р Ричард Бутзин — психолог от Университета на Аризона, един от водещите специалисти в областта на поведенческата медицина на съня — показват, че основният проблем при хора с активни мисли след лягане не е количеството стрес, а именно тази погрешна условна връзка между леглото и будуването.</p>
+
+  <p class="reveal"><strong>Затова не работят досегашните решения:</strong></p>
+  <p class="reveal">Чаевете успокояват тялото — но не променят какво означава леглото за мозъка. Медитацията потиска мислите за момент — но не изгражда нова връзка. Дишането намалява пулса — но не учи мозъка, че леглото е място за сън. Насилственото заспиване само затвърждава проблема — защото добавя ново напрежение.</p>
+
+  <p class="reveal"><strong>Решението не е да натискаш газта още по-силно.</strong></p>
+  <p class="reveal"><strong>Решението е да освободиш ръчната спирачка.</strong></p>
+
+  <p class="reveal">Методът на Бутзин използва <strong>контрол на стимулите</strong> и ясни последователни действия, за да подпомогне постепенното възстановяване на правилната връзка:</p>
+
+  <div class="highlight-box reveal">
+    <p style="text-align:center; font-size:18px; margin:0;"><span style="color:var(--green); font-weight:800;">ЛЕГЛО → СЪН И ПОЧИВКА</span></p>
+    <p style="text-align:center; color:#999; margin:8px 0;">вместо</p>
+    <p style="text-align:center; font-size:16px; margin:0; color:#888;">Легло → Мисли → Напрежение → Будуване</p>
+  </div>
+
+  <p class="reveal">Именно тази „Система Легло–Сън" е в основата на 14-дневния план.</p>
+
+</div>
+
+<!-- КАК РАБОТИ -->
+<section class="section-dark how-it-works">
+  <div class="hiw-blob-1"></div>
+  <div class="hiw-blob-2"></div>
+  <div class="wrap">
+    <h2 class="reveal">Как работи <span class="gradient-text">„Системата Легло–Сън"</span></h2>
+    <p class="intro reveal">Не е магия. Не е незабавно. Но е процес с ясна логика — и с 14-дневен план, в който знаеш точно какво да правиш всеки ден.</p>
+
+    <div class="step-box reveal">
+      <div class="step-period">Ден 1–5</div>
+      <div class="step-number">Стъпка №1</div>
+      <div class="step-title">Прекъсване на стария цикъл</div>
+      <p class="step-desc">Прибираш се след напрегнат ден. Тялото тежи. Преди да легнеш — следваш краткия протокол за затваряне на деня. Три минути. Мозъкът получава ясен сигнал: <em>„Денят приключи."</em><br><br>Лягаш. Мислите пак идват — но вече имаш план. Не ги потискаш. Не се биеш с тях. Следваш инструкцията. Ако след известно време сънят не идва — знаеш какво да направиш. Не лежиш буден, натрупвайки напрежение.<br><br>Нещо се усеща различно. Не е вълшебство. Но за пръв път <strong>не се чудиш какво да правиш</strong>. За пръв път имаш план — и го следваш.</p>
+    </div>
+
+    <div class="step-box reveal reveal-delay-1">
+      <div class="step-period">Ден 6–10</div>
+      <div class="step-number">Стъпка №2</div>
+      <div class="step-title">Постепенната промяна</div>
+      <p class="step-desc">Леглото вече не предизвиква същото инстинктивно напрежение. Не защото мислите са изчезнали. А защото всяка нощ, в която следваш протокола, мозъкът получава малко по-различен сигнал: <em>„Легло = почивка."</em><br><br>Колегата те е ядосал. Имаш важна среща утре. Вечерта е тежка. Лягаш — и вместо да започнеш безкрайната борба, следваш процеса. Не защото вярваш сляпо. А защото вече виждаш, че нещо се е променило.<br><br>Somniora следи напредъка ти — виждаш как нощ след нощ картината се мени. Вече не гадаеш дали работи. <strong>Виждаш го.</strong></p>
+    </div>
+
+    <div class="step-box reveal reveal-delay-2">
+      <div class="step-period">Ден 11–14</div>
+      <div class="step-number">Стъпка №3</div>
+      <div class="step-title">Новата посока</div>
+      <p class="step-desc">Събуждаш се. Спомняш си, че снощи не си гледал часовника с паника. Спомняш си, че мислите са дошли — и ти си знаел какво да направиш с тях.<br><br>Не е перфектно. Но е различно. На срещата сутринта си по-концентриран. Вечерта с детето — малко по-присъстващ.<br><br>И когато легнеш тази вечер, за пръв път от дълго не се питаш <em>„дали ще успея да заспя"</em>. Питаш се само: <em>„Кога ще заспя?"</em> Защото вече знаеш какво да правиш.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FUTURE PACING -->
+<div class="wrap section">
+  <h2 class="reveal" style="text-align:center">Кажи сбогом на нощите, в които лежиш буден и не знаеш какво да правиш!</h2>
+
+  <h3 class="reveal" style="color:var(--green); margin-top:32px;">✅ Най-накрая ще можеш да:</h3>
+  <ul class="check-list">
+    <li class="reveal">Лягаш вечерта с ясен план — и да знаеш точно какво да правиш, дори когато е трудно</li>
+    <li class="reveal reveal-delay-1">Приключваш деня преди лягане — без мислите за работа, пари и грешки да те следват в леглото</li>
+    <li class="reveal reveal-delay-2">Прекъснеш цикъла на борбата — вместо да се опитваш насила да заспиш и да ставаш още по-буден</li>
+    <li class="reveal">Спреш да гледаш часовника и да пресмяташ оставащия сън — без паниката, която идва след това</li>
+    <li class="reveal reveal-delay-1">Ползваш леглото за сън — и да усетиш как напрежението около него постепенно намалява</li>
+    <li class="reveal reveal-delay-2">Следваш структуриран 14-дневен процес — не случайни съвети, а ясна последователност</li>
+    <li class="reveal">Се събуждаш с повече енергия — по-присъстващ с хората около теб</li>
+    <li class="reveal reveal-delay-1">Преминеш от „надявам се тази вечер да успея" към „дори тази вечер да е трудна, знам какво да направя"</li>
+  </ul>
+
+  <h3 class="reveal" style="color:var(--red); margin-top:40px;">❌ И всичко без да:</h3>
+  <ul class="cross-list">
+    <li class="reveal">Приемаш хапчета или добавки и се страхуваш от зависимост</li>
+    <li class="reveal reveal-delay-1">Правиш сложен вечерен ритуал от 1–2 часа, за който нямаш нито време, нито желание</li>
+    <li class="reveal reveal-delay-2">Се нуждаеш от перфектна тъмна, тиха и хладна стая</li>
+    <li class="reveal">Трябва да промениш работата, темпото на живот или да „премахнеш стреса"</li>
+    <li class="reveal reveal-delay-1">Разчиташ на медитация или дихателни техники, които спират да работят след два дни</li>
+    <li class="reveal reveal-delay-2">Пробваш поредния случаен съвет от интернет и пак се разочароваш</li>
+    <li class="reveal">Лежиш буден и не знаеш какво да правиш в онзи конкретен момент</li>
+    <li class="reveal reveal-delay-1">Се биеш с мислите си и ставаш по-буден от самото усилие</li>
+  </ul>
+</div>
+
+<!-- TESTIMONIALS -->
+<div class="section-gray" style="padding:55px 0;">
+<div class="wrap">
+  <h2 class="reveal" style="text-align:center">Какво казват хората, следвали плана</h2>
+
+  <div class="testimonial reveal">
+    <div class="testimonial-stars">★★★★★</div>
+    <p class="testimonial-text">„За пръв път от дълго лягам и знам какво да правя, когато мислите тръгнат. Не е магия — но е огромна разлика да имаш план вместо да се надяваш."</p>
+    <div class="testimonial-author">— Мария, 38 г., мениджър</div>
+  </div>
+
+  <div class="testimonial reveal reveal-delay-1">
+    <div class="testimonial-stars">★★★★★</div>
+    <p class="testimonial-text">„Инструментът „Стоп на часовниковите сметки" беше точно това, от което имах нужда. Гледах часовника всяка нощ и после не можех да спя от паника. Сега имам план за онзи момент."</p>
+    <div class="testimonial-author">— Георги, 44 г., счетоводител</div>
+  </div>
+
+  <div class="testimonial reveal reveal-delay-2">
+    <div class="testimonial-stars">★★★★★</div>
+    <p class="testimonial-text">„Скептик съм по природа. Но след първата седмица забелязах, че вече не лежа буден толкова дълго. Не промени живота ми за три дни — но след 14-те дни нещо определено се е изместило."</p>
+    <div class="testimonial-author">— Силвия, 31 г., учителка</div>
+  </div>
+
+  <div class="testimonial reveal">
+    <div class="testimonial-stars">★★★★★</div>
+    <p class="testimonial-text">„Имам две деца, напрегната работа и много отговорности. Не мога да „премахна стреса". Но сега имам ясен процес за вечерта — и това е разликата."</p>
+    <div class="testimonial-author">— Красимир, 47 г., предприемач</div>
+  </div>
+</div>
+</div>
+
+<!-- ОФЕРТА 2 — пълно -->
+<section id="order" class="night-section">
+  <div class="night-blob"></div>
+  <div class="wrap">
+    <h2 class="reveal">Вземи <span class="gradient-text">Метода на Бутзин</span> сега</h2>
+    <p class="subtitle reveal">Ако си стигнал дотук, вече разбираш защо досегашните неща не са помагали трайно. Не е въпрос на воля. Въпрос е на правилния структуриран процес.</p>
+
+    <div class="offer-box reveal">
+      <div class="offer-badge">✅ ПЪЛНА ОФЕРТА — 14-ДНЕВЕН ПЛАН + 5 БОНУСА</div>
+
+      <div class="product-title">📗 Методът на Бутзин — 14-дневен план за по-спокойно заспиване</div>
+      <p class="product-desc">Структуриран процес, основан на „Системата Легло–Сън" — за да знаеш точно какво да правиш всяка вечер; за да прекъснеш цикъла на будуване, напрежение и пресмятане; и да преминеш постепенно от „надявам се тази вечер да заспя" към „дори тази вечер да е трудна, знам какво да направя". Без сложни режими. Без добавки. С ясен план за всеки от 14-те дни.</p>
+
+      <div class="bonus-box reveal reveal-delay-1">
+        <div class="bonus-title">🎁 Бонус 1: Мини програма „7-дневно Затваряне на деня"</div>
+        <div class="bonus-meta"><span class="bonus-value">19,90 €</span><span class="bonus-free">→ БЕЗПЛАТНО</span></div>
+        <p class="bonus-desc">Мозъкът ти не премисля деня, защото нещо не е наред с теб. Той го прави, защото не е получил ясен сигнал, че денят е приключен. Тази мини програма ти дава точния 7-дневен протокол — за да затвориш деня преди да легнеш, за да не се спомняш разговори и забравени задачи точно когато затвориш очи, и за да не се питаш как ще се справиш утре — така че главата ти да е по-чиста още в момента на лягане.</p>
+      </div>
+
+      <div class="bonus-box reveal reveal-delay-2">
+        <div class="bonus-title">🎁 Бонус 2: Мини инструмент „Стоп на часовниковите сметки"</div>
+        <div class="bonus-meta"><span class="bonus-value">9,90 €</span><span class="bonus-free">→ БЕЗПЛАТНО</span></div>
+        <p class="bonus-desc">Гледането на часовника е един от най-силните спусъци за ескалиране на напрежението нощем. Колкото повече пресмяташ, толкова по-буден ставаш. Този инструмент ти дава точните стъпки за следващите минути след като видиш часа — за да спреш пресмятането, за да не чувстваш, че нощта е „вече провалена", и за да можеш да продължиш с плана си вместо да потъваш в паника.</p>
+      </div>
+
+      <div class="bonus-box reveal">
+        <div class="bonus-title">🎁 Бонус 3: Аудио пакет „Тиха вечер"</div>
+        <div class="bonus-meta"><span class="bonus-value">24,90 €</span><span class="bonus-free">→ БЕЗПЛАТНО</span></div>
+        <p class="bonus-desc">Кратко аудио за по-лесно отпускане вечерта — поддръжка към основния план. Слушаш го когато решиш — тихо, без инструкции, без нужда от концентрация. Не замества плана. Подпомага отпускането по пътя към него.</p>
+      </div>
+
+      <div class="bonus-box reveal reveal-delay-1">
+        <div class="bonus-title">🎁 Бонус 4: Somniora Software</div>
+        <div class="bonus-meta"><span class="bonus-value">29,90 €</span><span class="bonus-free">→ БЕЗПЛАТНО</span></div>
+        <p class="bonus-desc">Дигитален инструмент с четири компонента: <strong>Дневник на съня</strong> — записваш как е минала нощта, без да гадаеш дали се подобряваш. <strong>Личен план</strong> — адаптиран към твоя ритъм и ситуация. <strong>Адаптивен план</strong> — коригира се спрямо напредъка ти. <strong>Проследяване на напредъка</strong> — виждаш нагледно как се променя картината нощ след нощ. Вместо да се питаш „работи ли изобщо?" — виждаш отговора.</p>
+      </div>
+
+      <div class="bonus-box reveal reveal-delay-2">
+        <div class="bonus-title">🎁 Бонус 5: 30-дневна Somniora поддръжка след основната програма</div>
+        <div class="bonus-meta"><span class="bonus-value">14,90 €</span><span class="bonus-free">→ БЕЗПЛАТНО</span></div>
+        <p class="bonus-desc">Защото промяната не спира на 14-ия ден. Somniora продължава да те следи, да адаптира плана и да дава насоки — така че резултатите, постигнати по време на програмата, да се запазят и задълбочат. За по-концентрирани дни, за по-търпеливо присъствие с близките и за усещането, че сънят вече не е проблемът, около който се върти животът ти.</p>
+      </div>
+
+      <div class="total-value">Обща стойност на всичко: <strong>149,40 €</strong></div>
+
+      <table class="value-table reveal">
+        <thead>
+          <tr><th>Какво получаваш</th><th>Стойност</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>📗 „Методът на Бутзин — 14-дневен план"</td><td>49,90 €</td></tr>
+          <tr><td>🎁 Бонус 1: „7-дневно Затваряне на деня"</td><td>19,90 €</td></tr>
+          <tr><td>🎁 Бонус 2: „Стоп на часовниковите сметки"</td><td>9,90 €</td></tr>
+          <tr><td>🎁 Бонус 3: Аудио пакет „Тиха вечер"</td><td>24,90 €</td></tr>
+          <tr><td>🎁 Бонус 4: Somniora Software</td><td>29,90 €</td></tr>
+          <tr><td>🎁 Бонус 5: 30-дневна Somniora поддръжка</td><td>14,90 €</td></tr>
+          <tr class="total-row"><td><strong>Обща стойност</strong></td><td><strong>149,40 €</strong></td></tr>
+          <tr class="price-row"><td><strong>➡️ Само сега</strong></td><td><strong>13,80 €</strong></td></tr>
+          <tr class="save-row"><td>Спестяваш</td><td><strong>135,60 € (91%)</strong></td></tr>
+        </tbody>
+      </table>
+
+      <div class="price-section">
+        <div class="price-original">149,40 €</div>
+        <span class="price-current"><span class="price-currency">€</span>13,80</span>
+        <div class="price-label">еднократно плащане · моментален достъп</div>
+        <span class="price-save">Спестяваш 135,60 € (91% отстъпка)</span>
+      </div>
+
+      <div class="urgency-box">
+        <div class="urgency-label">⏰ Тази цена изтича след:</div>
+        <span class="timer" id="timer2">23:59:46</span>
+      </div>
+
+      <a href="#order" class="btn-cta">🌙 Искам да знам какво да правя, когато сънят не идва →</a>
+      <p class="btn-sub">🔒 Сигурно плащане &nbsp;•&nbsp; Веднага получаваш достъп &nbsp;•&nbsp; 14-дневна гаранция</p>
+
+      <div class="guarantee">
+        <div class="guarantee-icon">🛡️</div>
+        <div>
+          <div class="guarantee-title">14-дневна гаранция за връщане на парите</div>
+          <p class="guarantee-text">Разполагаш с 14-дневна гаранция. Ако в рамките на този период прецениш, че програмата не е подходяща за теб, свържи се с нас и ще ти възстановим заплатената сума. Без обяснения. Нямаш какво да губиш — освен поредната нощ без ясен план.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ЧЗВ -->
+<div class="wrap section">
+  <h2 class="reveal" style="text-align:center">Имаш въпроси?</h2>
+  <p class="reveal" style="text-align:center; color:var(--text-light); margin-bottom:32px;">Ето отговорите на най-честите въпроси</p>
+
+  <div class="faq-item reveal">
+    <div class="faq-q">1️⃣ Вече съм пробвал книги и техники за сън — защо това ще е различно? <span class="faq-icon">+</span></div>
+    <div class="faq-body"><div class="faq-body-inner">Повечето книги и техники се фокусират върху симптома — мислите или умората — и се опитват да ги потиснат. Методът на Бутзин работи на различно ниво: адресира погрешната условна връзка между леглото и будуването, която се е изградила с времето. Вместо да се биеш с мислите, следваш структуриран процес, който постепенно възстановява правилната връзка — ЛЕГЛО = СЪН. Това е принципно различен подход — не поредна колекция от съвети, а ясна последователност с логика зад всяка стъпка.</div></div>
+  </div>
+
+  <div class="faq-item reveal reveal-delay-1">
+    <div class="faq-q">2️⃣ Ами ако и това не сработи за мен? Вече съм разочарован толкова пъти. <span class="faq-icon">+</span></div>
+    <div class="faq-body"><div class="faq-body-inner">Затова съществува 14-дневната гаранция. Ако в рамките на 14 дни прецениш, че програмата не е подходяща за теб, свържи се с нас и ти връщаме заплатената сума. Без обяснения. Рискуваш 13,80 € — и ако не работи, получаваш ги обратно. Нямаш нищо да губиш, освен поредната нощ без план.</div></div>
+  </div>
+
+  <div class="faq-item reveal reveal-delay-2">
+    <div class="faq-q">3️⃣ Трябва ли да правя сложен вечерен ритуал? <span class="faq-icon">+</span></div>
+    <div class="faq-body"><div class="faq-body-inner">Не. Протоколите в програмата са разработени специално за хора с натоварен живот, без свободен час преди лягане. Действията са кратки и ясни — и се изпълняват стъпка по стъпка, без нужда от специална подготовка или перфектна среда. Това е едно от ключовите изисквания при разработването на плана — да е приложим дори в претоварени вечери.</div></div>
+  </div>
+
+  <div class="faq-item reveal">
+    <div class="faq-q">4️⃣ Проблемът ми е стресът от работата — може ли план за сън да помогне? <span class="faq-icon">+</span></div>
+    <div class="faq-body"><div class="faq-body-inner">Методът не премахва стреса от живота ти. Но ти дава конкретен процес за управление на онова, което се случва след лягане — независимо от нивото на стрес. „Системата Легло–Сън" не изисква стресът да изчезне, за да работи. Работи паралелно с него. Много от хората, следвали плана, имат натоварена работа и семейни отговорности — и именно за тях е създаден.</div></div>
+  </div>
+
+  <div class="faq-item reveal reveal-delay-1">
+    <div class="faq-q">5️⃣ Безсънието е наследствено при нас в семейството — може ли изобщо да се промени? <span class="faq-icon">+</span></div>
+    <div class="faq-body"><div class="faq-body-inner">Погрешната условна връзка между леглото и будуването не е наследствена — тя се е изградила с времето чрез повторение. И понеже се е изградила чрез повторение, може да бъде променена чрез нов структуриран процес. Именно това прави Методът на Бутзин — не се бори с генетиката, а работи с механизма, който можеш да повлияеш.</div></div>
+  </div>
+
+  <div class="faq-item reveal reveal-delay-2">
+    <div class="faq-q">6️⃣ Колко бързо ще усетя разлика? <span class="faq-icon">+</span></div>
+    <div class="faq-body"><div class="faq-body-inner">Програмата е 14-дневна — и промяната е постепенна, не моментална. Повечето хора усещат разлика в подхода си към леглото и мислите в рамките на първата седмица. Пълният процес изисква честно следване на плана за 14 дни. Somniora ти помага да проследяваш напредъка нощ след нощ — така виждаш промяната дори когато не я усещаш ясно.</div></div>
+  </div>
+
+  <div class="faq-item reveal">
+    <div class="faq-q">7️⃣ Ще трябва ли да ползвам добавки или хапчета заедно с програмата? <span class="faq-icon">+</span></div>
+    <div class="faq-body"><div class="faq-body-inner">Не. Методът на Бутзин работи изцяло без добавки, медикаменти или устройства. Основан е на поведенчески и когнитивни принципи — неща, които правиш, а не вещества, които приемаш. Точно затова и резултатите са трайни — не зависят от нещо външно.</div></div>
+  </div>
+
+  <div class="faq-item reveal reveal-delay-1">
+    <div class="faq-q">8️⃣ Каква е разликата между Бонус 1, Бонус 2 и основния план? <span class="faq-icon">+</span></div>
+    <div class="faq-body"><div class="faq-body-inner">Основният план адресира общата погрешна връзка между леглото и будуването — структурата на 14-те дни. Бонус 1 „7-дневно Затваряне на деня" се фокусира върху конкретния проблем с мислите за деня — работа, разговори, задачи — преди изобщо да легнеш. Бонус 2 „Стоп на часовниковите сметки" е за конкретния момент, в който видиш часа нощем и паниката започне. Трите работят заедно като система — всеки покрива различна точка от проблема.</div></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-moon">🌙</span>
+  <span class="footer-brand">Методът на Бутзин</span>
+  <p>14-дневен план за по-спокойно заспиване</p>
+  <p style="margin-top:14px; font-size:12px; line-height:1.8;">Резултатите могат да се различават при отделните потребители. Програмата не замества медицинска диагностика или лечение. При сериозни здравословни проблеми се консултирайте с лекар.</p>
+  <p style="margin-top:12px;">© 2026 Методът на Бутзин. Всички права запазени.</p>
+  <div class="footer-links">
+    <a href="#order">Политика за поверителност</a>
+    <a href="#order">Условия за ползване</a>
+    <a href="#order">Контакт</a>
+  </div>
+</footer>
+
+<!-- FLOATING CTA BAR -->
+<div class="floating-cta" id="floatingCta">
+  <div class="floating-inner">
+    <div class="floating-text">
+      🌙 <strong>Методът на Бутзин</strong> + 5 бонуса
+      <span>14-дневен план за по-спокойно заспиване — само <strong style="color:var(--accent)">13,80 €</strong></span>
+    </div>
+    <a href="#order" class="btn-cta">🌙 Искам плана →</a>
+  </div>
+</div>
+
+<script>
+// SCROLL PROGRESS BAR
+const progressBar = document.getElementById('scroll-progress');
+window.addEventListener('scroll', () => {
+  const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
+  progressBar.style.width = Math.min(pct, 100) + '%';
+}, { passive: true });
+
+// SCROLL REVEAL
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      revealObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.07 });
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+// FAQ ACCORDION
+document.querySelectorAll('.faq-q').forEach(q => {
+  q.addEventListener('click', () => {
+    const isOpen = q.classList.contains('open');
+    document.querySelectorAll('.faq-q.open').forEach(other => {
+      other.classList.remove('open');
+      other.nextElementSibling.style.maxHeight = '0';
+    });
+    if (!isOpen) {
+      q.classList.add('open');
+      const body = q.nextElementSibling;
+      body.style.maxHeight = body.scrollHeight + 'px';
+    }
+  });
+});
+
+// COUNTDOWN TIMER (persistent)
+(function() {
+  const KEY = 'butzin_deadline_v1';
+  let deadline;
+  const stored = localStorage.getItem(KEY);
+  if (stored) {
+    deadline = new Date(+stored);
+    if (deadline < new Date()) {
+      deadline = new Date(Date.now() + 23 * 60 * 60 * 1000 + 59 * 60 * 1000 + 59 * 1000);
+      localStorage.setItem(KEY, deadline.getTime());
+    }
+  } else {
+    deadline = new Date(Date.now() + 23 * 60 * 60 * 1000 + 59 * 60 * 1000 + 59 * 1000);
+    localStorage.setItem(KEY, deadline.getTime());
+  }
+  const timers = document.querySelectorAll('.timer');
+  function tick() {
+    const diff = Math.max(0, deadline - Date.now());
+    if (diff === 0) {
+      timers.forEach(t => t.textContent = '00:00:00');
+      return;
+    }
+    const h = String(Math.floor(diff / 3600000)).padStart(2, '0');
+    const m = String(Math.floor((diff % 3600000) / 60000)).padStart(2, '0');
+    const s = String(Math.floor((diff % 60000) / 1000)).padStart(2, '0');
+    timers.forEach(t => t.textContent = h + ':' + m + ':' + s);
+  }
+  tick();
+  setInterval(tick, 1000);
+})();
+
+// FLOATING CTA BAR
+(function() {
+  const bar = document.getElementById('floatingCta');
+  const firstOffer = document.querySelector('.offer-box');
+  const secondOffer = document.getElementById('order');
+  if (!bar || !firstOffer) return;
+
+  let firstVisible = false;
+  let secondVisible = false;
+
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.target === firstOffer) firstVisible = e.isIntersecting;
+      if (e.target === secondOffer) secondVisible = e.isIntersecting;
+    });
+    if (firstVisible || secondVisible) {
+      bar.classList.remove('show');
+    } else {
+      if (window.scrollY > 400) bar.classList.add('show');
+    }
+  }, { threshold: 0.1 });
+
+  obs.observe(firstOffer);
+  if (secondOffer) obs.observe(secondOffer);
+
+  window.addEventListener('scroll', () => {
+    if (!firstVisible && !secondVisible && window.scrollY > 400) {
+      bar.classList.add('show');
+    }
+  }, { passive: true });
+})();
+</script>
+
+
+</body></html>
