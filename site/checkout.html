@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>Поръчка | Методът на Бутзин</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/checkout.css">
+  <script src="/site-config.js"></script>
+</head>
+<body class="somniora-sky">
+  <div class="wrap">
+    <a href="/" class="logo">
+      <img src="/brand/somniora-logo-trim.png" alt="Somniora" width="36" height="36">
+      Somniora
+    </a>
+
+    <p class="trust-badge">Сигурно плащане със Stripe</p>
+    <h1 class="checkout-title">Остава само да попълниш името и имейла си. След плащането ще получиш достъп до програмата.</h1>
+    <p class="checkout-sub">
+      Общата стойност на пакета е 149,40 €. Днес плащаш 17 € и спестяваш
+      <span class="save">132,40 € (89%)</span>.
+    </p>
+
+    <ol class="steps" aria-label="Стъпки">
+      <li class="step done"><span class="step-num">✓</span>Оферта</li>
+      <li class="step active"><span class="step-num">2</span>Данни</li>
+      <li class="step"><span class="step-num">3</span>Достъп</li>
+    </ol>
+
+    <div class="grid">
+      <article class="book-card">
+        <img
+          src="/brand/book-mockup-bootzin-14.png"
+          alt="Методът на Бутзин: 14-дневен план за по-спокойно заспиване"
+          width="800"
+          height="1000"
+          fetchpriority="high"
+          decoding="async"
+        >
+        <p class="book-badge">Специална цена</p>
+      </article>
+
+      <aside class="form-card">
+        <div class="form-header">
+          <p class="form-step-label">Поръчка, стъпка 2 от 3</p>
+          <div class="form-product-row">
+            <div>
+              <p class="form-product-name">Методът на Бутзин: 14-дневен план за по-спокойно заспиване</p>
+              <p class="form-product-meta">Еднократно плащане, доживотен достъп, 5 бонуса</p>
+            </div>
+            <div>
+              <p class="form-price-old">149,40 €</p>
+              <p class="form-price">17 €</p>
+            </div>
+          </div>
+          <div class="stars-row" aria-label="5 звезди">
+            ★★★★★ <span>Гаранция за 7 дни · Stripe</span>
+          </div>
+        </div>
+
+        <form id="checkout-form" class="checkout-form" novalidate>
+          <p>Попълни данните си. След успешно плащане получаваш достъп веднага на имейла си.</p>
+
+          <div class="field">
+            <label for="checkout-name">Име</label>
+            <input id="checkout-name" name="name" type="text" autocomplete="name" required>
+          </div>
+
+          <div class="field">
+            <label for="checkout-email">Имейл (тук идва достъпът)</label>
+            <input id="checkout-email" name="email" type="email" autocomplete="email" inputmode="email" required>
+          </div>
+
+          <label class="checkbox-row">
+            <input id="accept-terms" type="checkbox" required>
+            <span>
+              Приемам <a href="/terms.html">общите условия</a>
+              и <a href="/privacy.html">политиката за поверителност</a>.
+            </span>
+          </label>
+
+          <label class="checkbox-row">
+            <input id="accept-digital" type="checkbox" required>
+            <span>
+              Съгласявам се с незабавното предоставяне на дигиталния продукт и
+              <a href="/refund.html">политиката за връщане</a>.
+            </span>
+          </label>
+
+          <div id="checkout-error" class="alert-error" role="alert" hidden></div>
+
+          <button type="submit" class="btn-submit" id="checkout-submit">
+            🔒 Завърши поръчката за 17 €
+          </button>
+
+          <p class="form-note">Спестяваш 132,40 € и получаваш 5 бонуса включени</p>
+
+          <ul class="trust-list">
+            <li>Гаранция за 7 дни: връщаме парите, ако не е за теб</li>
+            <li>Плащане през Stripe. Тази страница не съхранява данни за карта.</li>
+            <li>Незабавен дигитален достъп след успешно плащане</li>
+          </ul>
+        </form>
+      </aside>
+    </div>
+
+    <p class="back-link">
+      <a href="/">← Назад към офертата</a>
+    </p>
+  </div>
+
+  <script src="/js/checkout.js"></script>
+</body>
+</html>

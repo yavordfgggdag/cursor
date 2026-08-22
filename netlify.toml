@@ -1,5 +1,29 @@
 [build]
-  publish = "site"
+  command = "npm install && node scripts/build-with-somniora.mjs"
+  publish = "publish"
+  functions = "netlify/functions"
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+[functions."payments-api"]
+  included_files = ["netlify/functions/_shared/**"]
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Checkout page (pretty URL)
+[[redirects]]
+  from = "/checkout"
+  to = "/checkout.html"
+  status = 200
+
+# Somniora SPA under /app (Expo static export + expo-router)
+[[redirects]]
+  from = "/app/*"
+  to = "/app/index.html"
+  status = 200
 
 [[headers]]
   for = "/*"
@@ -27,3 +51,8 @@
   for = "/robots.txt"
   [headers.values]
     Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "/app/_expo/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

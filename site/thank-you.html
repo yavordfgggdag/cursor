@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>Благодарим за поръчката | Somniora</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/checkout.css">
+  <script src="/site-config.js"></script>
+  <style>
+    .ty-card {
+      max-width: 32rem;
+      margin: 3rem auto 0;
+      padding: 1.5rem;
+      border-radius: 24px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.05);
+      text-align: left;
+    }
+    .ty-card p { font-size: 0.875rem; color: rgba(232,237,245,0.85); line-height: 1.6; }
+    .ty-email { margin-top: 0.5rem; font-size: 0.75rem; color: var(--muted); }
+    .ty-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: 1.25rem;
+    }
+    .ty-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 3rem;
+      padding: 0.75rem 1rem;
+      border-radius: 999px;
+      font-weight: 700;
+      text-decoration: none;
+      text-align: center;
+    }
+    .ty-btn-primary {
+      background: linear-gradient(90deg, #8b5cf6, #2ee6d6);
+      color: #fff;
+    }
+    .ty-btn-secondary {
+      border: 1px solid rgba(255,255,255,0.2);
+      color: var(--cream);
+    }
+    .ty-support {
+      margin-top: 1rem;
+      font-size: 0.875rem;
+      color: var(--muted);
+      text-align: center;
+    }
+    .ty-support a { color: var(--accent); }
+  </style>
+</head>
+<body class="somniora-sky">
+  <div class="wrap" style="text-align:center;">
+    <a href="/" class="logo">
+      <img src="/brand/somniora-logo-trim.png" alt="" width="36" height="36">
+      Somniora
+    </a>
+
+    <p class="trust-badge" style="margin-top:1.5rem;">Програма за спокоен сън</p>
+    <h1 id="ty-title" class="checkout-title">Подготвяме достъпа ти</h1>
+
+    <div class="ty-card">
+      <p id="ty-message">Проверяваме дали плащането е минало успешно…</p>
+      <p id="ty-email" class="ty-email" hidden></p>
+      <div id="ty-actions" class="ty-actions" hidden></div>
+    </div>
+
+    <p id="ty-support" class="ty-support" hidden>
+      Поддръжка: <a href="mailto:hello@somniora.bg">hello@somniora.bg</a>
+    </p>
+
+    <p class="back-link"><a href="/">← Към началната страница</a></p>
+  </div>
+
+  <script src="/js/thank-you.js"></script>
+</body>
+</html>

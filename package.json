@@ -1,0 +1,9 @@
+{
+  "name": "metod-butzin-14",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@netlify/functions": "^5.3.0",
+    "@supabase/supabase-js": "^2.111.0"
+  }
+}

@@ -1,1 +1,3 @@
 .netlify/
+publish/
+node_modules/
