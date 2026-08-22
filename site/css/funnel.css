@@ -438,3 +438,124 @@ footer a:hover { color: var(--primary-2); }
   .value-table td, .value-table th { padding: 11px 13px; font-size: 14px; }
   .testimonial { padding: 20px 20px; }
 }
+
+/* -------------------------------------------------------------------------
+   4. Phase 5D step 5 — hero grid + Night Clarity backgrounds
+   Overrides extracted live styles. Mobile hero order stays:
+   eyebrow → proof → H1 → mockup → subtitle → bez → CTA → microcopy.
+   ------------------------------------------------------------------------- */
+
+.top-bar {
+  background: linear-gradient(90deg, var(--color-night-800), #1e1b4b 48%, var(--color-night-800));
+}
+
+.hero {
+  background:
+    radial-gradient(ellipse 80% 55% at 12% 8%, rgba(99, 102, 241, 0.26), transparent 58%),
+    radial-gradient(ellipse 70% 50% at 92% 88%, rgba(129, 140, 248, 0.16), transparent 62%),
+    radial-gradient(ellipse 45% 40% at 50% 100%, rgba(76, 29, 149, 0.2), transparent 70%),
+    linear-gradient(165deg, var(--color-night-900) 0%, var(--color-night-800) 52%, var(--color-night-950) 100%);
+}
+
+.section-dark,
+.how-it-works {
+  background:
+    radial-gradient(ellipse 70% 55% at 88% 8%, rgba(99, 102, 241, 0.18), transparent 60%),
+    radial-gradient(ellipse 55% 45% at 8% 92%, rgba(129, 140, 248, 0.12), transparent 65%),
+    linear-gradient(165deg, var(--color-night-800) 0%, var(--color-night-900) 100%);
+}
+
+.night-section {
+  background:
+    radial-gradient(ellipse 75% 50% at 90% 0%, rgba(99, 102, 241, 0.22), transparent 58%),
+    radial-gradient(ellipse 50% 45% at 10% 100%, rgba(76, 29, 149, 0.16), transparent 68%),
+    linear-gradient(165deg, var(--color-night-900) 0%, var(--color-night-800) 58%, var(--color-night-950) 100%);
+}
+
+footer {
+  background: linear-gradient(180deg, var(--color-night-900), var(--color-night-950));
+}
+
+.hero::before,
+.night-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    radial-gradient(1.5px 1.5px at 6% 12%, rgba(244, 246, 255, 0.72) 50%, transparent 60%),
+    radial-gradient(1.5px 1.5px at 14% 38%, rgba(244, 246, 255, 0.45) 50%, transparent 60%),
+    radial-gradient(1.5px 1.5px at 22% 8%, rgba(244, 246, 255, 0.58) 50%, transparent 60%),
+    radial-gradient(1.5px 1.5px at 31% 64%, rgba(244, 246, 255, 0.4) 50%, transparent 60%),
+    radial-gradient(1.5px 1.5px at 39% 22%, rgba(244, 246, 255, 0.66) 50%, transparent 60%),
+    radial-gradient(1.5px 1.5px at 47% 78%, rgba(244, 246, 255, 0.38) 50%, transparent 60%),
+    radial-gradient(1.5px 1.5px at 55% 16%, rgba(244, 246, 255, 0.55) 50%, transparent 60%),
+    radial-gradient(1.5px 1.5px at 63% 48%, rgba(244, 246, 255, 0.42) 50%, transparent 60%),
+    radial-gradient(1.5px 1.5px at 71% 9%, rgba(244, 246, 255, 0.7) 50%, transparent 60%),
+    radial-gradient(1.5px 1.5px at 78% 71%, rgba(244, 246, 255, 0.36) 50%, transparent 60%),
+    radial-gradient(1.5px 1.5px at 86% 28%, rgba(244, 246, 255, 0.6) 50%, transparent 60%),
+    radial-gradient(1.5px 1.5px at 93% 54%, rgba(244, 246, 255, 0.4) 50%, transparent 60%),
+    radial-gradient(1.5px 1.5px at 11% 82%, rgba(244, 246, 255, 0.5) 50%, transparent 60%),
+    radial-gradient(1.5px 1.5px at 28% 91%, rgba(244, 246, 255, 0.34) 50%, transparent 60%),
+    radial-gradient(1.5px 1.5px at 44% 44%, rgba(244, 246, 255, 0.48) 50%, transparent 60%),
+    radial-gradient(1.5px 1.5px at 58% 93%, rgba(244, 246, 255, 0.32) 50%, transparent 60%),
+    radial-gradient(1.5px 1.5px at 67% 33%, rgba(244, 246, 255, 0.56) 50%, transparent 60%),
+    radial-gradient(1.5px 1.5px at 74% 86%, rgba(244, 246, 255, 0.3) 50%, transparent 60%),
+    radial-gradient(1.5px 1.5px at 82% 14%, rgba(244, 246, 255, 0.64) 50%, transparent 60%),
+    radial-gradient(1.5px 1.5px at 18% 56%, rgba(244, 246, 255, 0.38) 50%, transparent 60%),
+    radial-gradient(1.5px 1.5px at 35% 18%, rgba(244, 246, 255, 0.52) 50%, transparent 60%),
+    radial-gradient(1.5px 1.5px at 51% 61%, rgba(244, 246, 255, 0.36) 50%, transparent 60%),
+    radial-gradient(1.5px 1.5px at 89% 81%, rgba(244, 246, 255, 0.44) 50%, transparent 60%),
+    radial-gradient(1.5px 1.5px at 96% 36%, rgba(244, 246, 255, 0.5) 50%, transparent 60%);
+  animation: night-stars-drift 40s linear infinite;
+}
+
+@keyframes night-stars-drift {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+@media (min-width: 1024px) {
+  .hero .hero-inner {
+    max-width: var(--container-wide);
+    display: grid;
+    grid-template-columns: minmax(0, 55%) minmax(0, 45%);
+    column-gap: var(--space-8);
+    align-items: center;
+  }
+
+  .hero-copy {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .hero-copy-rest {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .hero-product {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    margin: 0;
+    max-width: 400px;
+    justify-self: end;
+  }
+
+  .hero-product img {
+    box-shadow: var(--shadow-3), 0 0 56px var(--color-primary-glow);
+  }
+
+  .hero h1 {
+    text-wrap: balance;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero::before,
+  .night-section::before {
+    animation: none;
+  }
+}
