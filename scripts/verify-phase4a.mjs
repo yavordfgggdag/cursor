@@ -65,6 +65,8 @@ console.log('DASH TEST', JSON.stringify(results, null, 2));
 
 // Price checks
 const all = pages.map((f) => fs.readFileSync(path.join(root, f), 'utf8')).join('\n');
+const funnelUiPath = path.join(root, 'js', 'funnel-ui.js');
+const funnelUi = fs.existsSync(funnelUiPath) ? fs.readFileSync(funnelUiPath, 'utf8') : '';
 const checks = {
   price17: (all.match(/17[,\.]00?\s*€|17\s*€/g) || []).length,
   value149: all.includes('149,40') || all.includes('149.40'),
@@ -72,7 +74,7 @@ const checks = {
   pct89: all.includes('89%'),
   guarantee7: /гаранция за 7 дни/i.test(all),
   checkoutLinks: (all.match(/href="\/checkout"/g) || []).length,
-  timerKey: all.includes('butzin_deadline_v1'),
+  timerKey: all.includes('butzin_deadline_v1') || funnelUi.includes('butzin_deadline_v1'),
   claim1000: /1[\s,.]?000|над 1,000|над 1000/i.test(all),
   old432: all.includes('432'),
   old415: all.includes('415'),
