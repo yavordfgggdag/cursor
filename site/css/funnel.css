@@ -795,3 +795,69 @@ footer {
     align-items: start;
   }
 }
+
+/* -------------------------------------------------------------------------
+   7. Phase 5D step 8 — 14-day timeline rail
+   Mobile/tablet: vertical list with connecting line.
+   Desktop ≥1024: horizontal 3-node rail. .step-period chips stay as-is.
+   ------------------------------------------------------------------------- */
+
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 17px;
+  top: 20px;
+  bottom: 20px;
+  width: 2px;
+  background: rgba(129, 140, 248, 0.35);
+  pointer-events: none;
+}
+
+.timeline .step-box {
+  list-style: none;
+}
+
+@media (min-width: 1024px) {
+  .how-it-works .wrap {
+    max-width: var(--container-wide);
+  }
+
+  .timeline {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-6);
+    align-items: stretch;
+  }
+
+  .timeline::before {
+    left: 10%;
+    right: 10%;
+    top: 22px;
+    bottom: auto;
+    width: auto;
+    height: 2px;
+  }
+
+  .timeline .step-box {
+    margin: 0;
+    padding-top: 38px;
+    overflow: visible;
+  }
+
+  .timeline .step-box::before {
+    top: 16px;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    background: var(--color-primary-light);
+  }
+}
