@@ -559,3 +559,75 @@ footer {
     animation: none;
   }
 }
+
+/* -------------------------------------------------------------------------
+   5. Phase 5D step 6 — compact short offer
+   Full #order offer keeps stacked bonus boxes. First .offer-box stays the
+   floating-CTA intersection target.
+   ------------------------------------------------------------------------- */
+
+.offer-box--compact {
+  padding: 28px 22px 22px;
+  margin: 0;
+}
+
+.offer-box--compact .product-desc {
+  margin-bottom: 10px;
+}
+
+.bonus-summary {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 4px;
+}
+
+.bonus-summary li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 15px;
+  line-height: 1.45;
+  color: var(--text);
+}
+
+.bonus-summary li:last-child {
+  border-bottom: none;
+}
+
+.offer-box--compact .total-value {
+  margin: 14px 0 4px;
+  padding: 12px 16px;
+}
+
+.offer-box--compact .price-section {
+  margin: 14px 0;
+  padding: 16px;
+}
+
+.offer-box--compact .urgency-box {
+  margin: 12px 0;
+  padding: 14px 16px;
+}
+
+.offer-box--compact .btn-cta {
+  margin: 14px 0 8px;
+}
+
+.offer-box--compact .guarantee {
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  margin: 10px 0 0;
+}
+
+.offer-box--compact .guarantee-title {
+  margin-bottom: 0;
+}
+
+@media (max-width: 620px) {
+  .offer-box--compact {
+    padding: 24px 16px 18px;
+  }
+}
