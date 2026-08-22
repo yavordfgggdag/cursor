@@ -8,6 +8,8 @@ import { execSync } from 'child_process';
 const root = process.cwd();
 const indexPath = path.join(root, 'site', 'index.html');
 const html = fs.readFileSync(indexPath, 'utf8');
+const funnelUiPath = path.join(root, 'site', 'js', 'funnel-ui.js');
+const funnelUi = fs.existsSync(funnelUiPath) ? fs.readFileSync(funnelUiPath, 'utf8') : '';
 
 const protectedPaths = [
   'site/checkout.html',
@@ -125,8 +127,10 @@ if (!visible.includes('132,40')) fail('Missing savings 132,40 €');
 if (!visible.includes('89%')) fail('Missing 89% discount');
 if (!/7 дни|7-дневна/i.test(visible)) fail('Missing 7-day guarantee wording');
 
-// 17 Timer key
-if (!html.includes('butzin_deadline_v1')) fail('Timer key butzin_deadline_v1 missing');
+// 17 Timer key (inline script or extracted funnel-ui.js)
+if (!html.includes('butzin_deadline_v1') && !funnelUi.includes('butzin_deadline_v1')) {
+  fail('Timer key butzin_deadline_v1 missing');
+}
 
 // 18 FAQ accessibility
 const faqButtons = html.match(/class="faq-q"/g) || [];

@@ -19,6 +19,7 @@ const pages = [
 const jsMessages = [
   path.join(root, 'js', 'checkout.js'),
   path.join(root, 'js', 'thank-you.js'),
+  path.join(root, 'js', 'funnel-ui.js'),
   path.join(root, 'site-config.js'),
 ];
 
@@ -90,6 +91,9 @@ const allowedGrammatical = {
 };
 
 const allHtml = pages.map((f) => fs.readFileSync(path.join(root, f), 'utf8')).join('\n');
+const funnelUi = fs.existsSync(path.join(root, 'js', 'funnel-ui.js'))
+  ? fs.readFileSync(path.join(root, 'js', 'funnel-ui.js'), 'utf8')
+  : '';
 
 const checks = {
   price17: /17[,\.]00?\s*€|17\s*€/.test(allHtml),
@@ -98,7 +102,7 @@ const checks = {
   pct89: allHtml.includes('89%'),
   guarantee7: /гаранция за 7 дни/i.test(allHtml),
   checkoutLinks: (allHtml.match(/href="\/checkout"/g) || []).length >= 3,
-  timerKey: allHtml.includes('butzin_deadline_v1'),
+  timerKey: allHtml.includes('butzin_deadline_v1') || funnelUi.includes('butzin_deadline_v1'),
   claim1000: /над 1,000|над 1\.000|над 1000/i.test(allHtml),
   old432: allHtml.includes('432'),
   old415: allHtml.includes('415'),
