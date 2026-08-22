@@ -18,16 +18,21 @@ Environment: local code + post-deploy verification on `https://metod-butzin-14.n
 | Somniora delivery box | Added in `#order` section | Pass |
 | `site-config.js` | Present | Pass |
 
-## HTTP checks (run after deploy)
+## HTTP checks (post-deploy 2026-08-22)
 
-Re-run:
-
-```powershell
-$base = 'https://metod-butzin-14.netlify.app'
-@('/','/privacy.html','/terms.html','/refund.html','/contact.html','/favicon.svg','/robots.txt','/sitemap.xml') | ForEach-Object {
-  (Invoke-WebRequest -Uri "$base$_" -UseBasicParsing).StatusCode
-}
-```
+| URL | Status |
+|---|---|
+| `/` | 200 |
+| `/privacy.html` | 200 |
+| `/terms.html` | 200 |
+| `/refund.html` | 200 |
+| `/contact.html` | 200 |
+| `/favicon.svg` | 200 |
+| `/robots.txt` | 200 |
+| `/sitemap.xml` | 200 |
+| `/site-config.js` | 200 |
+| Checkout link in homepage HTML | OK |
+| Price €17,00 in homepage HTML | OK |
 
 ## Manual checks (recommended in browser)
 
