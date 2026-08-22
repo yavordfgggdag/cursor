@@ -1185,3 +1185,137 @@ footer {
     transition: none;
   }
 }
+
+/* -------------------------------------------------------------------------
+   11. Phase 5D step 12 — footer dusk + floating CTA polish
+   Keep #floatingCta, .floating-cta.show, first .offer-box / #order IO,
+   href="/checkout", and body padding-bottom 88px. No JS or offer changes.
+   ------------------------------------------------------------------------- */
+
+.site-footer {
+  background:
+    radial-gradient(ellipse 70% 40% at 50% 0%, rgba(99, 102, 241, 0.12), transparent 58%),
+    linear-gradient(180deg, var(--color-night-900), var(--color-night-950));
+  color: var(--color-text-muted-on-night);
+  text-align: center;
+  padding: var(--space-16) var(--space-6) calc(var(--space-12) + 8px);
+  font-size: var(--fs-small);
+  border-top: 1px solid var(--color-border-on-night);
+}
+
+.site-footer .footer-moon {
+  font-size: 28px;
+  display: block;
+  margin-bottom: 10px;
+  line-height: 1;
+}
+
+.site-footer .footer-brand {
+  color: var(--color-text-on-night);
+  margin-bottom: var(--space-3);
+}
+
+.site-footer p {
+  margin: 7px 0;
+  line-height: 1.7;
+}
+
+.footer-disclaimer {
+  margin-top: 14px;
+  font-size: 12px;
+  line-height: 1.8;
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footer-copy {
+  margin-top: 12px;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px 8px;
+  margin-top: var(--space-6);
+}
+
+.site-footer .footer-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  margin: 0;
+  padding: 0 12px;
+  color: rgba(244, 246, 255, 0.55);
+}
+
+.site-footer .footer-links a:hover {
+  color: var(--color-primary-light);
+}
+
+.site-footer .footer-links a:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.floating-cta {
+  min-height: 72px;
+  background: rgba(6, 10, 24, 0.97);
+  border-top: 1px solid rgba(99, 102, 241, 0.45);
+  padding: 12px 20px;
+  transition: transform 400ms var(--ease-standard);
+}
+
+.floating-cta.show {
+  transform: translateY(0);
+}
+
+.floating-inner {
+  max-width: 720px;
+  min-height: 48px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.floating-text {
+  color: var(--color-text-on-night);
+}
+
+.floating-price {
+  color: var(--color-moon);
+}
+
+.floating-cta .btn-cta {
+  width: auto;
+  min-height: 44px;
+  padding: 12px 22px;
+  white-space: nowrap;
+  animation: none;
+}
+
+@media (max-width: 1023px) {
+  .floating-inner {
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: stretch;
+  }
+
+  .floating-text {
+    text-align: center;
+  }
+
+  .floating-cta .btn-cta {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .floating-cta {
+    transition: none;
+  }
+}
