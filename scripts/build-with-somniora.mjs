@@ -2,7 +2,7 @@
  * Assemble metod-butzin funnel (site/) + Somniora static export (app/).
  * Run from butzin-method-1 root: node scripts/build-with-somniora.mjs
  */
-import { existsSync, mkdirSync, rmSync } from 'node:fs';
+import { cpSync, existsSync, mkdirSync, rmSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { spawnSync } from 'node:child_process';
@@ -24,16 +24,11 @@ function run(cmd, cwd) {
 }
 
 function copyDir(src, dest) {
-  rmSync(dest, { recursive: true, force: true });
-  mkdirSync(dest, { recursive: true });
-  const quoted = `"${src}" "${dest}"`;
-  const result = spawnSync(`robocopy ${quoted} /E /NFL /NDL /NJH /NJS /nc /njs /njh`, {
-    shell: true,
-    stdio: 'inherit',
-  });
-  if (result.status !== null && result.status > 7) {
-    throw new Error(`robocopy failed (${result.status}): ${src} -> ${dest}`);
+  if (!existsSync(src)) {
+    throw new Error(`Copy source missing: ${src}`);
   }
+  rmSync(dest, { recursive: true, force: true });
+  cpSync(src, dest, { recursive: true, force: true });
 }
 
 
