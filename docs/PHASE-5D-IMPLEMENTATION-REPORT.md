@@ -49,7 +49,7 @@ Checkout, `site-config.js`, Netlify functions, thank-you, reviews backend, and `
 | Checkout untouched | Met | No diff vs `origin/design/phase-5c-blueprint` on checkout / thank-you / `site-config.js` / `netlify.toml` |
 | Implementation report committed | Met | This file |
 
-Lighthouse mobile (local `publish/` on 4G emulation, 2026-08-22): performance **99**, accessibility **96→rechecked after label contrast fix**, LCP **1.7s** (hero `<picture> img`, AVIF), CLS **0.000**. Not a `verify-phase5d.mjs` gate. The only a11y fail was `.section-label` indigo on white at 12px; color is now `--color-text` (14.9:1).
+Lighthouse mobile (local `publish/` on 4G emulation, 2026-08-22): performance **99**, accessibility **100**, LCP **1.7s** (hero `<picture> img`, AVIF), CLS **0.000**. First pass a11y was 96 from `.section-label` indigo on white at 12px; color is now `--color-text` (14.9:1). Not a `verify-phase5d.mjs` gate.
 
 ---
 
