@@ -1319,3 +1319,13 @@ footer {
     transition: none;
   }
 }
+
+/* -------------------------------------------------------------------------
+   12. Phase 5D step 13 — picture wrappers for optimized book mockup
+   AVIF/WebP sources; PNG remains the img fallback. Layout hooks unchanged.
+   ------------------------------------------------------------------------- */
+
+.hero-product picture,
+.offer-product picture {
+  display: block;
+}
