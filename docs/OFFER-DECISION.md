@@ -1,43 +1,53 @@
 # Offer Decision Gate — butzin-method-1
 
-Date: 2026-08-22  
-Sources: Google Doc (tab „СКЕЛЕ“), live `site/index.html`, `sleepfunnel-1` checkout (`sleep-restart-14`)
+Date: 2026-08-22 (updated Phase 5B)
+Sources: Google Doc tabs „СКЕЛЕ“, „Работен Документ“, „Продукти“; locked owner decisions
 
-## Comparison
+## Locked offer (Phase 5B)
 
-| Dimension | FunnelAI export (Phase 1 live) | Google Doc „СКЕЛЕ“ | sleepfunnel-1 (Stripe) | **Decision** |
-|---|---|---|---|---|
-| Product | 14-дневен план / Метод Бутзин | Книга + 5 бонуса | Метод Бутзин 14-day program | Keep current naming |
-| Bonus count | 5 | 5 | 6 in somnioraOffer stats | **5** (matches SKЕЛЕ + landing) |
-| Sale price | €13,80 | €17 (working doc variants) | €17 | **€17** |
-| Value stack total | €149,40 | varies (up to €432 in other tabs) | €432 | **Keep €149,40** on this landing (itemized); checkout charges €17 |
-| Savings | €135,60 (91%) | n/a at €17 | n/a | **€132,40 (89%)** after price fix |
-| Guarantee | 14-day refund | 30-day „Спокойна Проба“ (drafts) | 7-day | **7-day** (matches checkout/legal on Somniora) |
-| Checkout | `#order` anchor only | n/a | `/checkout` on Somniora site | **External link to Somniora checkout** |
-| Somniora software | Promised in copy | Bonus 4 + 5 | Academy + tools post-purchase | **Link to academy after purchase** |
+| Dimension | Decision |
+|---|---|
+| Product name | Методът на Бутзин: 14-дневен план за по-спокойно заспиване |
+| Mechanism | Системата Легло–Сън |
+| Sale price | **17 €** |
+| Value stack total | **149,40 €** |
+| Savings | **132,40 €** |
+| Discount | **89%** |
+| Bonuses | **5** |
+| Guarantee | **7 дни** |
+| Countdown timer key | `butzin_deadline_v1` |
+| Social proof (locked copy) | „над 1,000 пълнолетни души“ (evidence source still required) |
+| Checkout | **Local `/checkout`** on this site |
 
-## Rationale
+## Bonus map
 
-1. **Price €17** — Stripe on `30-dni-po-dobar-sun.netlify.app` charges €17; leaving €13,80 on the landing would mislead buyers at checkout.
-2. **5 bonuses** — SKЕЛЕ tab explicitly lists book + 5 bonuses; matches current page structure.
-3. **7-day guarantee** — Operational refund policy on Somniora funnel; draft 30-day copy in Google Doc not yet implemented in payment stack.
-4. **Checkout URL** — Static site has no backend; CTA targets `https://30-dni-po-dobar-sun.netlify.app/checkout`.
-5. **Somniora delivery** — Software/support delivered via Somniora academy (`/academy`) after Stripe purchase; landing clarifies post-purchase access.
+| # | Name | Notes |
+|---|---|---|
+| 1 | Мини програма „7-дневно Затваряне на деня“ | work, tasks, conversations, money, tomorrow thoughts |
+| 2 | Мини инструмент „Стоп на часовниковите сметки“ | clock watching, sleep math, rising tension |
+| 3 | Аудио пакет „Тиха вечер“ | helper part of plan, not primary sleep guarantee |
+| 4 | Somniora Software | Дневник на съня, Личен план, План според напредъка ти, Преглед на напредъка |
+| 5 | Somniora Academy: 30-дневна Somniora поддръжка | weekly reviews + extra materials after the 14-day plan |
 
-## CTA map (approved)
+## CTA map
 
 | Element | Target |
 |---|---|
-| Primary CTA buttons | `CHECKOUT_URL` from site-config.js |
-| Floating CTA | same |
+| Hero CTA | `/checkout` |
+| Offer 1 CTA | `/checkout` |
+| Offer 2 CTA | `/checkout` |
+| Floating CTA | `/checkout` |
 | Privacy | `/privacy.html` |
 | Terms | `/terms.html` |
-| Refund | `/refund.html` |
 | Contact | `/contact.html` |
-| Somniora access (post-purchase) | `https://30-dni-po-dobar-sun.netlify.app/academy` |
 
-## Out of scope (future)
+## Operational notes
 
-- Custom domain for this landing
-- Stripe embedded on `metod-butzin-14.netlify.app` (would require functions)
-- Aligning value stack to €432 (sleepfunnel main funnel) — separate copy pass
+- Timer `butzin_deadline_v1` remains in `site/index.html`.
+- Authenticated reviews are **not** shown in Phase 5B; slot reserved for Phase 7.
+- Public Somniora showcase page (`/somniora`) is deferred to a later phase to avoid temporary 404 links.
+- Stripe, Supabase, webhook, and checkout payment logic are unchanged in this phase.
+
+## Evidence gaps (documentation only)
+
+- „Над 1,000 пълнолетни души“ is locked marketing copy but still needs a documented evidence source before external compliance review.
